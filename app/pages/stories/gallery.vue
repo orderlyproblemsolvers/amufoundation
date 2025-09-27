@@ -17,12 +17,20 @@
         :style="{ animationDelay: `${index * 0.1}s` }"
       >
         <div class="image-wrapper">
-          <img
+          <NuxtImg
             :src="item.src"
             :alt="item.alt"
             class="gallery-image"
             loading="lazy"
+            format="webp"
+            quality="80"
+            sizes="sm:350px md:400px lg:450px xl:500px"
+            :width="500"
+            :height="310"
+            fit="cover"
             @load="handleImageLoad"
+            placeholder
+            preload
           />
           <div class="image-overlay">
             <div class="overlay-content">
@@ -56,10 +64,18 @@
           </button>
           
           <div class="lightbox-content">
-            <img
+            <NuxtImg
               :src="galleryItems[selectedItem]?.src"
               :alt="galleryItems[selectedItem]?.alt"
               class="lightbox-image"
+              format="webp"
+              quality="90"
+              sizes="sm:95vw md:80vw lg:70vw xl:60vw"
+              :width="1200"
+              :height="800"
+              fit="contain"
+              placeholder
+              preload
             />
             <div class="lightbox-info">
               <h3>{{ galleryItems[selectedItem]?.title }}</h3>
@@ -167,28 +183,28 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 7,
     src: '/img/bs9.jpeg',
-    alt: 'AMU Foundation Event 6',
-    title: 'Women Empowerment',
-    description: 'Supporting women entrepreneurs and leadership development.',
-    date: 'October 2023',
+    alt: 'AMU Foundation Event 7',
+    title: 'Community Building',
+    description: 'Strengthening community bonds through collaborative activities.',
+    date: 'September 2023',
     orientation: 'portrait'
   },
   {
     id: 8,
     src: '/img/bs7.jpeg',
-    alt: 'AMU Foundation Event 6',
-    title: 'Women Empowerment',
-    description: 'Supporting women entrepreneurs and leadership development.',
-    date: 'October 2023',
+    alt: 'AMU Foundation Event 8',
+    title: 'Social Impact',
+    description: 'Making a difference in the lives of those who need it most.',
+    date: 'August 2023',
     orientation: 'portrait'
   },
   {
     id: 9,
     src: '/img/bs8.jpeg',
-    alt: 'AMU Foundation Event 6',
-    title: 'Women Empowerment',
-    description: 'Supporting women entrepreneurs and leadership development.',
-    date: 'October 2023',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
     orientation: 'portrait'
   },
 ])

@@ -119,10 +119,18 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/floor.png" 
                 alt="Floor Plan Design" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
@@ -135,10 +143,18 @@
 
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/front.png" 
                 alt="Front View Design" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
@@ -151,60 +167,95 @@
 
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/sky.png" 
-                alt="Side View Design" 
+                alt="Sky View Design" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
-                  <h4 class="font-semibold">Side View</h4>
-                  <p class="text-sm opacity-90">Lateral perspective</p>
+                  <h4 class="font-semibold">Sky View</h4>
+                  <p class="text-sm opacity-90">Aerial perspective</p>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/internal.png" 
-                alt="Side View Design" 
+                alt="Internal View Design" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
                   <h4 class="font-semibold">Internal View</h4>
-                  <p class="text-sm opacity-90">Internal perspective</p>
+                  <p class="text-sm opacity-90">Interior perspective</p>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/internal2.png" 
-                alt="Side View Design" 
+                alt="Internal View Design 2" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
                   <h4 class="font-semibold">Internal View</h4>
-                  <p class="text-sm opacity-90">Internal perspective</p>
+                  <p class="text-sm opacity-90">Interior perspective</p>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="group">
             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <img 
+              <NuxtImg 
                 src="/img/frontflat.png" 
-                alt="Side View Design" 
+                alt="Front Flat View Design" 
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                width="400"
+                height="256"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                sizes="sm:400px md:350px lg:400px"
+                placeholder
+                :modifiers="{ fit: 'cover' }"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-4 left-4 text-white">
                   <h4 class="font-semibold">Front View</h4>
-                  <p class="text-sm opacity-90">Front perspective</p>
+                  <p class="text-sm opacity-90">Front flat perspective</p>
                 </div>
               </div>
             </div>
@@ -368,19 +419,19 @@
             <svg class="w-5 h-5 text-rose-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            <span class="text-gray-700">amu@bs-education.com</span>
+            <span class="text-gray-700">info.go@amufoundation.org</span>
           </div>
           <div class="flex items-center justify-center">
             <svg class="w-5 h-5 text-rose-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
             </svg>
-            <span class="text-gray-700">+2348025007333</span>
+            <span class="text-gray-700">+234 (0)91 347 91980</span>
           </div>
           <div class="flex items-center justify-center">
             <svg class="w-5 h-5 text-rose-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
             </svg>
-            <span class="text-gray-700">www.bs-education.com</span>
+            <span class="text-gray-700"><a href="https://bs-education.com">www.bs-education.com</a></span>
           </div>
         </div>
       </div>

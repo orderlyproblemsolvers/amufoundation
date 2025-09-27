@@ -7,7 +7,7 @@
           <img 
             src="/img/amulogo.png" 
             alt="AMU Logo" 
-            class="h-12 w-auto lg:h-16"
+            class="h-28 w-auto lg:h-32"
           />
         </NuxtLink>
 

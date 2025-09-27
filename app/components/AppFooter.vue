@@ -7,9 +7,9 @@
           <h3>Explore</h3>
           <ul>
             <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/about">About</NuxtLink></li>
-            <li><NuxtLink to="/events">Events</NuxtLink></li>
-            <li><NuxtLink to="/team">Our Team</NuxtLink></li>
+            <li><NuxtLink to="/about/history">About</NuxtLink></li>
+            <li><NuxtLink to="/stories/events">Events</NuxtLink></li>
+            <li><NuxtLink to="/about/team">Our Team</NuxtLink></li>
           </ul>
         </div>
 
@@ -17,11 +17,11 @@
         <div class="footer-column">
           <h3>Get Involved</h3>
           <ul>
-            <li><NuxtLink to="/register-child">Register a Child</NuxtLink></li>
-            <li><NuxtLink to="/partner">Partner with Us</NuxtLink></li>
-            <li><NuxtLink to="/kacis">KACIS</NuxtLink></li>
+            <li><NuxtLink to="/stories/events">Register a Child</NuxtLink></li>
+            <li><NuxtLink to="/donate">Partner with Us</NuxtLink></li>
+            <li><NuxtLink to="/about/kacis">KACIS</NuxtLink></li>
             <li><NuxtLink to="/donate">Donate</NuxtLink></li>
-            <li><NuxtLink to="/volunteer">Volunteer</NuxtLink></li>
+            <li><NuxtLink to="/contact">Volunteer</NuxtLink></li>
           </ul>
         </div>
 
@@ -59,7 +59,7 @@
             passionate and desiring to make a change in the life and development of 
             young people between ages 4-18 in Nigeria...
           </p>
-          <NuxtLink to="/about" class="read-more">Read More</NuxtLink>
+          <NuxtLink to="/about/vision-mission" class="read-more">Read More</NuxtLink>
           
           <div class="social-links">
             <h4>Follow Us:</h4>

@@ -22,11 +22,17 @@
           <!-- Profile Image -->
           <div class="flex justify-center mb-6">
             <div class="w-32 h-32 rounded-full bg-gray-200 overflow-hidden">
-              <img
+              <NuxtImg
                 v-if="member.image"
                 :src="member.image"
                 :alt="member.name"
                 class="w-full h-full object-cover"
+                width="128"
+                height="128"
+                format="webp"
+                quality="85"
+                loading="lazy"
+                placeholder
                 @error="handleImageError"
               />
               <div
@@ -136,11 +142,17 @@
           <div class="flex items-start justify-between mb-6">
             <div class="flex items-center space-x-4">
               <div class="w-20 h-20 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                <img
+                <NuxtImg
                   v-if="selectedMember.image"
                   :src="selectedMember.image"
                   :alt="selectedMember.name"
                   class="w-full h-full object-cover"
+                  width="80"
+                  height="80"
+                  format="webp"
+                  quality="90"
+                  loading="lazy"
+                  placeholder
                   @error="handleImageError"
                 />
                 <div
@@ -453,41 +465,6 @@ const teamMembers = ref([
     ],
     "location": "United States of America"
   },
-//   {
-//     "name": "Elizabeth Titilayo Adesanya",
-//     "position": "Business Management Consultant",
-//     "image": "/img/elizabeth.png",
-//     "current_role": "Business Management Consultant with Presidential Enabling Business Environment Council (PEBEC)",
-//     "description": "Ms. Elizabeth Adesanya is a Business Management Consultant with the Presidential Enabling Business Environment Council (PEBEC) which was set up by HE President Muhammadu Buhari GCFR and is chaired by HE Vice President Yemi Osinbajo SAN GCON.",
-//     "pebec_details": "Set up by President Muhammadu Buhari GCFR, chaired by Vice President Yemi Osinbajo SAN GCON",
-//     "achievements": ["Led reforms that helped Nigeria move up 24 places in 2018 World Bank's Ease of Doing Business rankings"],
-//     "prior_experience": "8 years with Nigerian Private sector in Administration and Finance management",
-//     "education": [
-//       "Bachelor degree in Business Administration (Accounting and Finance) from Kwame Nkrumah University of Science and Technology (KNUST) Ghana",
-//       "Currently pursuing Master's in Business Administration"
-//     ],
-//     "certifications": [
-//       "Leadership course certificates in Covenant Ministerial Institute",
-//       "Rhema Training College, Abuja"
-//     ],
-//     "skills_and_gifts": [
-//       "Mentoring",
-//       "Teaching",
-//       "Organizing",
-//       "Writing",
-//       "Music"
-//     ],
-//     "background": "8 years with Nigerian Private sector",
-//     "volunteer_work": ["Several NGOs, private and government sectors"],
-//     "origin": "Indigene of Lagos State",
-//     "passion": "Development issues in Africa relating to teenage girls and boys, orphans, internally displaced persons, house helps",
-//     "other_roles": [
-//       "Avid writer",
-//       "Minister",
-//       "Minstrel"
-//     ],
-//     "mentoring_experience": "Over 12 years mentoring Nigerian youth in various capacities"
-//   }
 ])
 
 const selectedMember = ref(null)
