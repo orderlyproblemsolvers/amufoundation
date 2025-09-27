@@ -1,0 +1,4 @@
+const visionMission_vue_vue_type_style_index_0_scoped_0c065e65_lang = '.mission-content[data-v-0c065e65],.vision-content[data-v-0c065e65]{position:relative}.mission-content[data-v-0c065e65]:before,.vision-content[data-v-0c065e65]:before{background:linear-gradient(180deg,#be185d,#f9fafb);bottom:0;content:"";left:-1rem;opacity:.3;position:absolute;top:0;width:2px}.group:hover .mission-content[data-v-0c065e65]:before,.group:hover .vision-content[data-v-0c065e65]:before{opacity:1;transition:opacity .3s ease}.group[data-v-0c065e65]:hover{transform:translateY(-2px)}@media (max-width:640px){.mission-content p[data-v-0c065e65],.vision-content p[data-v-0c065e65]{font-size:1rem}}';
+
+export { visionMission_vue_vue_type_style_index_0_scoped_0c065e65_lang as v };
+//# sourceMappingURL=vision-mission-styles-1.mjs-DkL-vwpJ.mjs.map
