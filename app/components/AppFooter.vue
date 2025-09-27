@@ -34,12 +34,13 @@
               <p>3001 SW 58th Avenue<br>
               Amarillo Texas 79118<br>
               United States<br>
-              Suite 308, 3rd Floor</p>
+              </p>
             </div>
             
             <div class="address">
               <h4>Nigeria Office:</h4>
-              <p>The Kings Opposite NAF Conference Centre<br>
+              <p>Suite 308, 3rd Floor <br/>
+                The Kings Opposite NAF Conference Centre<br>
               Ahmadu Bello Way<br>
               Abuja, Nigeria</p>
             </div>

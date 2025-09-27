@@ -3,7 +3,7 @@
     <!-- Gallery Header -->
     <div class="gallery-header">
       <h2 class="gallery-title">AMU Foundation <span class="text-rose-700">Gallery</span></h2>
-      <p class="gallery-subtitle max-w-4xl  leading-relaxed">Capturing moments that matter</p>
+      <p class="gallery-subtitle max-w-4xl leading-relaxed">Capturing moments that matter</p>
     </div>
 
     <!-- Gallery Grid -->
@@ -17,7 +17,9 @@
         :style="{ animationDelay: `${index * 0.1}s` }"
       >
         <div class="image-wrapper">
+          <!-- Image Display -->
           <NuxtImg
+            v-if="item.type === 'image'"
             :src="item.src"
             :alt="item.alt"
             class="gallery-image"
@@ -32,12 +34,39 @@
             placeholder
             preload
           />
+          
+          <!-- Video Display -->
+          <video
+            v-else-if="item.type === 'video'"
+            class="gallery-image gallery-video"
+            :poster="item.thumbnail"
+            muted
+            loop
+            playsinline
+            @mouseenter="playVideo"
+            @mouseleave="pauseVideo"
+          >
+            <source :src="item.src" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
           <div class="image-overlay">
             <div class="overlay-content">
-              <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <!-- Play icon for videos -->
+              <svg v-if="item.type === 'video'" class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <!-- Expand icon for images -->
+              <svg v-else class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18-5h-3m0 0v3m0-3L16 8M8 21h-3a2 2 0 0 1-2-2v-3m0 0L8 16m0 0l3 3"/>
               </svg>
             </div>
+          </div>
+          
+          <!-- Media type indicator -->
+          <div class="media-type-badge">
+            <span v-if="item.type === 'video'">VIDEO</span>
+            <span v-else>PHOTO</span>
           </div>
         </div>
         <div class="item-info">
@@ -64,7 +93,9 @@
           </button>
           
           <div class="lightbox-content">
+            <!-- Lightbox Image -->
             <NuxtImg
+              v-if="galleryItems[selectedItem]?.type === 'image'"
               :src="galleryItems[selectedItem]?.src"
               :alt="galleryItems[selectedItem]?.alt"
               class="lightbox-image"
@@ -77,6 +108,19 @@
               placeholder
               preload
             />
+            
+            <!-- Lightbox Video -->
+            <video
+              v-else-if="galleryItems[selectedItem]?.type === 'video'"
+              class="lightbox-video"
+              controls
+              :poster="galleryItems[selectedItem]?.thumbnail"
+              preload="metadata"
+            >
+              <source :src="galleryItems[selectedItem]?.src" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
             <div class="lightbox-info">
               <h3>{{ galleryItems[selectedItem]?.title }}</h3>
               <p>{{ galleryItems[selectedItem]?.description }}</p>
@@ -122,6 +166,8 @@ interface GalleryItem {
   date: string
   orientation: 'portrait' | 'landscape'
   category?: string
+  type: 'image' | 'video'
+  thumbnail?: string // For video thumbnails
 }
 
 // Sample gallery data - replace with API call in the future
@@ -133,79 +179,170 @@ const galleryItems = ref<GalleryItem[]>([
     title: 'Community Outreach Program',
     description: 'Supporting local communities through various initiatives and programs.',
     date: 'March 2024',
-    orientation: 'landscape'
+    orientation: 'landscape',
+    type: 'image'
   },
   {
     id: 2,
+    src: '/vid/vid1.mp4',
+    alt: 'AMU Foundation Video 1',
+    title: 'Foundation Impact Story',
+    description: 'A compelling video showcasing the real impact of AMU Foundation\'s work in communities.',
+    date: 'March 2024',
+    orientation: 'landscape',
+    type: 'video',
+    // thumbnail: '/img/bs1.webp' // You can create actual video thumbnails
+  },
+  {
+    id: 3,
     src: '/img/bs4.jpg',
     alt: 'AMU Foundation Event 2',
     title: 'Education Initiative',
     description: 'Providing educational resources and support to underprivileged children.',
     date: 'February 2024',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
   },
   {
-    id: 3,
+    id: 4,
+    src: '/vid/vid2.mp4',
+    alt: 'AMU Foundation Video 2',
+    title: 'Community Testimonials',
+    description: 'Hear directly from community members about how the foundation has changed their lives.',
+    date: 'February 2024',
+    orientation: 'landscape',
+    type: 'video',
+    // thumbnail: '/img/bs3.webp' // You can create actual video thumbnails
+  },
+  {
+    id: 5,
     src: '/img/bs3.webp',
     alt: 'AMU Foundation Event 3',
     title: 'Healthcare Campaign',
     description: 'Free medical checkups and health awareness programs.',
     date: 'January 2024',
-    orientation: 'landscape'
+    orientation: 'landscape',
+    type: 'image'
   },
   {
-    id: 4,
+    id: 6,
     src: '/img/bs2.webp',
     alt: 'AMU Foundation Event 4',
     title: 'Environmental Conservation',
     description: 'Tree planting and environmental awareness activities.',
     date: 'December 2023',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
   },
   {
-    id: 5,
+    id: 7,
     src: '/img/bs5.jpg',
     alt: 'AMU Foundation Event 5',
     title: 'Youth Development',
     description: 'Empowering young people through skill development programs.',
     date: 'November 2023',
-    orientation: 'landscape'
+    orientation: 'landscape',
+    type: 'image'
   },
   {
-    id: 6,
+    id: 8,
     src: '/img/bs6.jpg',
     alt: 'AMU Foundation Event 6',
     title: 'Women Empowerment',
     description: 'Supporting women entrepreneurs and leadership development.',
     date: 'October 2023',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
   },
   {
-    id: 7,
+    id: 9,
     src: '/img/bs9.jpeg',
     alt: 'AMU Foundation Event 7',
     title: 'Community Building',
     description: 'Strengthening community bonds through collaborative activities.',
     date: 'September 2023',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
   },
   {
-    id: 8,
+    id: 10,
     src: '/img/bs7.jpeg',
     alt: 'AMU Foundation Event 8',
     title: 'Social Impact',
     description: 'Making a difference in the lives of those who need it most.',
     date: 'August 2023',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
   },
   {
-    id: 9,
+    id: 11,
     src: '/img/bs8.jpeg',
     alt: 'AMU Foundation Event 9',
     title: 'Volunteer Program',
     description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
-    orientation: 'portrait'
+    orientation: 'portrait',
+    type: 'image'
+  },
+  {
+    id: 12,
+    src: '/img/bs10.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 13,
+    src: '/img/bs11.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 14,
+    src: '/img/bs12.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 15,
+    src: '/img/bs13.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 16,
+    src: '/img/bs14.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 17,
+    src: '/img/bs15.jpg',
+    alt: 'AMU Foundation Event 9',
+    title: 'Volunteer Program',
+    description: 'Engaging volunteers in meaningful community service projects.',
+    date: 'July 2023',
+    orientation: 'portrait',
+    type: 'image'
   },
 ])
 
@@ -234,6 +371,24 @@ const navigateLightbox = (direction: number) => {
 
 const handleImageLoad = () => {
   // Trigger any masonry layout recalculation if needed
+}
+
+// Video hover functionality
+const playVideo = (event: Event) => {
+  const video = event.target as HTMLVideoElement
+  if (video && video.tagName === 'VIDEO') {
+    video.play().catch(() => {
+      // Handle autoplay restrictions silently
+    })
+  }
+}
+
+const pauseVideo = (event: Event) => {
+  const video = event.target as HTMLVideoElement
+  if (video && video.tagName === 'VIDEO') {
+    video.pause()
+    video.currentTime = 0
+  }
 }
 
 // Keyboard navigation
@@ -330,7 +485,8 @@ onUnmounted(() => {
   width: 100%;
 }
 
-.gallery-image {
+.gallery-image,
+.gallery-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -338,7 +494,8 @@ onUnmounted(() => {
   transition: transform 0.3s ease;
 }
 
-.gallery-item:hover .gallery-image {
+.gallery-item:hover .gallery-image,
+.gallery-item:hover .gallery-video {
   transform: scale(1.05);
 }
 
@@ -365,10 +522,28 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.expand-icon {
+.expand-icon,
+.play-icon {
   width: 3rem;
   height: 3rem;
   stroke-width: 1.5;
+}
+
+.play-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.media-type-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
 }
 
 .item-info {
@@ -427,11 +602,16 @@ onUnmounted(() => {
   gap: 1.5rem;
 }
 
-.lightbox-image {
+.lightbox-image,
+.lightbox-video {
   max-width: 80vw;
   max-height: 70vh;
   object-fit: contain;
   border-radius: 0.75rem;
+}
+
+.lightbox-video {
+  background: #000;
 }
 
 .lightbox-info {
@@ -578,7 +758,8 @@ onUnmounted(() => {
     font-size: 1.1rem;
   }
   
-  .lightbox-image {
+  .lightbox-image,
+  .lightbox-video {
     max-width: 95vw;
     max-height: 60vh;
   }
