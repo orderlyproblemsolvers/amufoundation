@@ -189,5 +189,5 @@ button {
 /* Ensure proper touch scrolling on mobile */
 .overflow-x-auto {
   -webkit-overflow-scrolling: touch;
-}
+} 
 </style>

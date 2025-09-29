@@ -1,5 +1,23 @@
 <template>
   <div class="min-h-screen bg-gray-50">
+    <!-- Success/Error Messages -->
+    <div v-if="showMessage" class="fixed top-4 right-4 z-50">
+      <div 
+        :class="[
+          'p-4 rounded-lg shadow-lg transition-all duration-500 transform',
+          messageType === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+        ]"
+      >
+        <div class="flex items-center space-x-2">
+          <Icon 
+            :name="messageType === 'success' ? 'i-lucide-check-circle' : 'i-lucide-x-circle'" 
+            class="w-5 h-5" 
+          />
+          <span>{{ message }}</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative bg-gray-50 py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +157,8 @@
                   id="name"
                   v-model="formData.name"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200"
+                  :disabled="isSubmitting"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -157,7 +176,8 @@
                   id="email"
                   v-model="formData.email"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200"
+                  :disabled="isSubmitting"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -174,7 +194,8 @@
                   id="subject"
                   v-model="formData.subject"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200"
+                  :disabled="isSubmitting"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 >
                   <option value="">Select a subject</option>
                   <option value="general-inquiry">General Inquiry</option>
@@ -205,7 +226,8 @@
                   v-model="formData.message"
                   required
                   rows="6"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200 resize-vertical"
+                  :disabled="isSubmitting"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-700 focus:border-transparent transition-colors duration-200 resize-vertical disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Tell us more about your inquiry..."
                 ></textarea>
               </div>
@@ -237,6 +259,51 @@
                 * Required fields. We typically respond within 24-48 hours.
               </p>
             </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submission Stats (only visible to authenticated users) -->
+    <section v-if="user" class="relative bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
+        <div class="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Submission Statistics
+          </h2>
+          
+          <div v-if="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Total Submissions -->
+            <div class="bg-blue-50 rounded-lg p-6 text-center">
+              <Icon name="i-lucide-inbox" class="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <h3 class="text-2xl font-bold text-blue-600">{{ stats.total_submissions }}</h3>
+              <p class="text-sm text-blue-700">Total Submissions</p>
+            </div>
+            
+            <!-- New Submissions -->
+            <div class="bg-yellow-50 rounded-lg p-6 text-center">
+              <Icon name="i-lucide-bell" class="w-8 h-8 text-yellow-600 mx-auto mb-2" />
+              <h3 class="text-2xl font-bold text-yellow-600">{{ stats.new_submissions }}</h3>
+              <p class="text-sm text-yellow-700">New Submissions</p>
+            </div>
+            
+            <!-- This Week -->
+            <div class="bg-green-50 rounded-lg p-6 text-center">
+              <Icon name="i-lucide-calendar-days" class="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <h3 class="text-2xl font-bold text-green-600">{{ stats.week_submissions }}</h3>
+              <p class="text-sm text-green-700">This Week</p>
+            </div>
+            
+            <!-- This Month -->
+            <div class="bg-purple-50 rounded-lg p-6 text-center">
+              <Icon name="i-lucide-calendar-range" class="w-8 h-8 text-purple-600 mx-auto mb-2" />
+              <h3 class="text-2xl font-bold text-purple-600">{{ stats.month_submissions }}</h3>
+              <p class="text-sm text-purple-700">This Month</p>
+            </div>
+          </div>
+
+          <div v-else class="text-center text-gray-500">
+            Loading statistics...
           </div>
         </div>
       </div>
@@ -279,7 +346,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+
+// Assuming you have Supabase client available
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 
 // Form data
 const formData = ref({
@@ -290,16 +361,44 @@ const formData = ref({
 });
 
 const isSubmitting = ref(false);
+const showMessage = ref(false);
+const message = ref("");
+const messageType = ref("success"); // 'success' or 'error'
+
+// Show message function
+const showNotification = (msg, type = "success") => {
+  message.value = msg;
+  messageType.value = type;
+  showMessage.value = true;
+  
+  setTimeout(() => {
+    showMessage.value = false;
+  }, 5000);
+};
 
 // Handle form submission
 const handleSubmit = async () => {
   isSubmitting.value = true;
 
   try {
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // Submit to Supabase
+    const { data, error } = await supabase
+      .from('contact_submissions')
+      .insert([
+        {
+          name: formData.value.name,
+          email: formData.value.email,
+          subject: formData.value.subject,
+          message: formData.value.message
+        }
+      ])
+      .select();
 
-    // Reset form
+    if (error) {
+      throw error;
+    }
+
+    // Reset form on success
     formData.value = {
       name: "",
       email: "",
@@ -307,14 +406,19 @@ const handleSubmit = async () => {
       message: "",
     };
 
-    // Show success message (you might want to use a toast notification instead)
-    alert("Thank you for your message! We will get back to you soon.");
+    showNotification("Thank you for your message! We will get back to you soon.", "success");
+    
+
   } catch (error) {
-    alert("There was an error sending your message. Please try again.");
+    console.error('Error submitting form:', error);
+    showNotification("There was an error sending your message. Please try again.", "error");
   } finally {
     isSubmitting.value = false;
   }
 };
+
+
+
 
 // SEO Meta
 useHead({
@@ -327,4 +431,5 @@ useHead({
     },
   ],
 });
+
 </script>
