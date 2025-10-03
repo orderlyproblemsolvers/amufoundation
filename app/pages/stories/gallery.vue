@@ -122,8 +122,6 @@
             </video>
 
             <div class="lightbox-info">
-              <h3>{{ galleryItems[selectedItem]?.title }}</h3>
-              <p>{{ galleryItems[selectedItem]?.description }}</p>
               <span class="lightbox-date">{{ galleryItems[selectedItem]?.date }}</span>
             </div>
           </div>
