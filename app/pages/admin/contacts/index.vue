@@ -19,6 +19,12 @@
             />
             {{ isLoading ? 'Loading...' : 'Refresh' }}
           </button>
+           <NuxtLink 
+            to="/admin"
+            class="text-xs sm:text-sm text-gray-600 hover:text-rose-700 transition-colors font-medium"
+          >
+            Back
+          </NuxtLink>
         </div>
       </div>
     </div>
