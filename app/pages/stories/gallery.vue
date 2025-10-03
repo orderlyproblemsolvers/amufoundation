@@ -162,8 +162,6 @@ interface GalleryItem {
   id: number
   src: string
   alt: string
-  title: string
-  description: string
   date: string
   orientation: 'portrait' | 'landscape'
   category?: string
@@ -177,8 +175,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 1,
     src: '/img/bs1.webp',
     alt: 'AMU Foundation Event 1',
-    title: 'Community Outreach Program',
-    description: 'Supporting local communities through various initiatives and programs.',
     date: 'March 2024',
     orientation: 'landscape',
     type: 'image'
@@ -187,8 +183,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 2,
     src: '/vid/vid1.mp4',
     alt: 'AMU Foundation Video 1',
-    title: 'Foundation Impact Story',
-    description: 'A compelling video showcasing the real impact of AMU Foundation\'s work in communities.',
     date: 'March 2024',
     orientation: 'landscape',
     type: 'video',
@@ -198,8 +192,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 3,
     src: '/img/bs4.jpg',
     alt: 'AMU Foundation Event 2',
-    title: 'Education Initiative',
-    description: 'Providing educational resources and support to underprivileged children.',
     date: 'February 2024',
     orientation: 'portrait',
     type: 'image'
@@ -208,8 +200,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 4,
     src: '/vid/vid2.mp4',
     alt: 'AMU Foundation Video 2',
-    title: 'Community Testimonials',
-    description: 'Hear directly from community members about how the foundation has changed their lives.',
     date: 'February 2024',
     orientation: 'landscape',
     type: 'video',
@@ -219,8 +209,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 5,
     src: '/img/bs3.webp',
     alt: 'AMU Foundation Event 3',
-    title: 'Healthcare Campaign',
-    description: 'Free medical checkups and health awareness programs.',
     date: 'January 2024',
     orientation: 'landscape',
     type: 'image'
@@ -229,8 +217,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 6,
     src: '/img/bs2.webp',
     alt: 'AMU Foundation Event 4',
-    title: 'Environmental Conservation',
-    description: 'Tree planting and environmental awareness activities.',
     date: 'December 2023',
     orientation: 'portrait',
     type: 'image'
@@ -239,8 +225,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 7,
     src: '/img/bs5.jpg',
     alt: 'AMU Foundation Event 5',
-    title: 'Youth Development',
-    description: 'Empowering young people through skill development programs.',
     date: 'November 2023',
     orientation: 'landscape',
     type: 'image'
@@ -249,8 +233,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 8,
     src: '/img/bs6.jpg',
     alt: 'AMU Foundation Event 6',
-    title: 'Women Empowerment',
-    description: 'Supporting women entrepreneurs and leadership development.',
     date: 'October 2023',
     orientation: 'portrait',
     type: 'image'
@@ -259,8 +241,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 9,
     src: '/img/bs9.jpeg',
     alt: 'AMU Foundation Event 7',
-    title: 'Community Building',
-    description: 'Strengthening community bonds through collaborative activities.',
     date: 'September 2023',
     orientation: 'portrait',
     type: 'image'
@@ -269,8 +249,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 10,
     src: '/img/bs7.jpeg',
     alt: 'AMU Foundation Event 8',
-    title: 'Social Impact',
-    description: 'Making a difference in the lives of those who need it most.',
     date: 'August 2023',
     orientation: 'portrait',
     type: 'image'
@@ -279,8 +257,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 11,
     src: '/img/bs8.jpeg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'portrait',
     type: 'image'
@@ -289,8 +265,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 12,
     src: '/img/bs10.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -299,8 +273,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 13,
     src: '/img/bs11.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -309,8 +281,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 14,
     src: '/img/bs12.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -319,8 +289,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 15,
     src: '/img/bs13.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -329,8 +297,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 16,
     src: '/img/bs14.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -339,8 +305,6 @@ const galleryItems = ref<GalleryItem[]>([
     id: 17,
     src: '/img/bs15.jpg',
     alt: 'AMU Foundation Event 9',
-    title: 'Volunteer Program',
-    description: 'Engaging volunteers in meaningful community service projects.',
     date: 'July 2023',
     orientation: 'portrait',
     type: 'image'
