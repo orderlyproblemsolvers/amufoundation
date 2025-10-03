@@ -70,7 +70,6 @@
           </div>
         </div>
         <div class="item-info">
-          <h3 class="item-title">{{ item.title }}</h3>
           <p class="item-date">{{ item.date }}</p>
         </div>
       </div>
