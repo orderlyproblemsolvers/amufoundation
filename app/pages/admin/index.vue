@@ -176,14 +176,19 @@ const checking = ref(true) // Add checking state
 
 // Get current user on mount
 onMounted(() => {
-  onAuthStateChanged($auth, (currentUser) => {
+  const unsubscribe = onAuthStateChanged($auth, (currentUser) => {
     user.value = currentUser
-    checking.value = false // Set to false once auth check is complete
     
     // If no user, redirect to login
     if (!currentUser) {
       navigateTo('/admin/login')
+    } else {
+      // Only set checking to false if user is authenticated
+      checking.value = false
     }
+    
+    // Clean up listener
+    unsubscribe()
   })
 })
 
@@ -192,7 +197,7 @@ const handleLogout = async () => {
   loggingOut.value = true
   try {
     await signOut($auth)
-    await navigateTo('/admin/login')
+    await navigateTo('/admin')
   } catch (error) {
     console.error('Error logging out:', error)
     alert('Failed to logout. Please try again.')

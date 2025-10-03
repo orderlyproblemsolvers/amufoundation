@@ -83,11 +83,13 @@ const errorMessage = ref('')
 
 // Monitor auth state and redirect if already logged in
 onMounted(() => {
-  onAuthStateChanged(auth, (currentUser) => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
     user.value = currentUser
     if (currentUser) {
       navigateTo('/admin')
     }
+    // Clean up listener after first check
+    unsubscribe()
   })
 })
 
