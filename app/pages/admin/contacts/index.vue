@@ -8,7 +8,7 @@
             <h1 class="text-3xl font-bold text-gray-900">Contact Submissions</h1>
             <p class="text-gray-600">Manage and respond to contact form submissions</p>
           </div>
-          <div class="flex flex-row gap-2">
+          <div class="flex flex-row gap-2 justify-content-center justify-center">
             <button
             @click="loadSubmissions"
             :disabled="isLoading"

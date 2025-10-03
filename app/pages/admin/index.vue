@@ -1,14 +1,5 @@
 <template>
-  <!-- Loading State -->
-  <div v-if="checking" class="min-h-screen bg-gray-50 flex items-center justify-center">
-    <div class="text-center">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-700 mx-auto mb-4"></div>
-      <p class="text-gray-600">Verifying authentication...</p>
-    </div>
-  </div>
-
-  <!-- Main Content - Only shown after auth check -->
-  <div v-else class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
@@ -172,23 +163,11 @@ definePageMeta({
 const { $auth } = useNuxtApp()
 const user = ref(null)
 const loggingOut = ref(false)
-const checking = ref(true) // Add checking state
 
 // Get current user on mount
 onMounted(() => {
-  const unsubscribe = onAuthStateChanged($auth, (currentUser) => {
+  onAuthStateChanged($auth, (currentUser) => {
     user.value = currentUser
-    
-    // If no user, redirect to login
-    if (!currentUser) {
-      navigateTo('/admin/login')
-    } else {
-      // Only set checking to false if user is authenticated
-      checking.value = false
-    }
-    
-    // Clean up listener
-    unsubscribe()
   })
 })
 
@@ -197,7 +176,7 @@ const handleLogout = async () => {
   loggingOut.value = true
   try {
     await signOut($auth)
-    await navigateTo('/admin')
+    await navigateTo('/admin/login')
   } catch (error) {
     console.error('Error logging out:', error)
     alert('Failed to logout. Please try again.')

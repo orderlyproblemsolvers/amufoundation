@@ -2,35 +2,34 @@
 import { onAuthStateChanged } from 'firebase/auth'
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  // Skip authentication check for login page
   if (to.path === '/admin/login') {
     return
   }
 
-  // Only check authentication for admin routes
   if (!to.path.startsWith('/admin')) {
     return
   }
 
-  // Only run on client side (Firebase Auth is client-side only)
   if (process.client) {
     const { $auth } = useNuxtApp()
     
+    // Check if user is already available (cached)
+    if ($auth.currentUser) {
+      return // User is authenticated
+    }
+    
     return new Promise((resolve) => {
-      // Set a timeout to prevent indefinite waiting
       const timeout = setTimeout(() => {
         resolve(navigateTo('/admin/login'))
-      }, 5000)
+      }, 1000) // Reduced timeout
 
       const unsubscribe = onAuthStateChanged($auth, (user) => {
         clearTimeout(timeout)
-        unsubscribe() // Clean up the listener
+        unsubscribe()
         
         if (!user) {
-          // User is not authenticated, redirect to login
           resolve(navigateTo('/admin/login'))
         } else {
-          // User is authenticated, allow access
           resolve()
         }
       })
