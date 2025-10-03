@@ -79,9 +79,9 @@
         <div class="copyright-content">
           <p>&copy; {{ new Date().getFullYear() }} AMU Foundation. All rights reserved.</p>
           <div class="copyright-links">
-            <NuxtLink to="/privacy">Privacy Policy</NuxtLink>
+            <p>Powered By</p>
             <span class="separator">|</span>
-            <NuxtLink to="/terms">Terms of Service</NuxtLink>
+            <p>OPS</p>
           </div>
         </div>
       </div>

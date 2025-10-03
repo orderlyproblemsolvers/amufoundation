@@ -20,10 +20,11 @@
             </span>
             <button
               @click="handleLogout"
-              class="bg-rose-700 hover:bg-rose-800 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 whitespace-nowrap"
+              :disabled="loggingOut"
+              class="bg-rose-700 hover:bg-rose-800 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200 whitespace-nowrap disabled:opacity-50"
             >
-              <span class="hidden sm:inline">Logout</span>
-              <span class="sm:hidden">Exit</span>
+              <span class="hidden sm:inline">{{ loggingOut ? 'Logging out...' : 'Logout' }}</span>
+              <span class="sm:hidden">{{ loggingOut ? '...' : 'Exit' }}</span>
             </button>
           </div>
         </div>
@@ -145,20 +146,42 @@
 </template>
 
 <script setup>
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
+
+// Protect this page with admin middleware
 definePageMeta({
+  head: {
+    title: 'Admin Dashboard - AMU Foundation',
+    meta: [
+      { name: 'description', content: 'Admin dashboard for managing AMU Foundation content and activities.' }
+    ]
+  },
   middleware: 'admin',
   layout: false
 })
 
-const supabase = useSupabaseClient()
-const user = useSupabaseUser()
+const { $auth } = useNuxtApp()
+const user = ref(null)
+const loggingOut = ref(false)
 
+// Get current user on mount
+onMounted(() => {
+  onAuthStateChanged($auth, (currentUser) => {
+    user.value = currentUser
+  })
+})
+
+// Handle logout with Firebase
 const handleLogout = async () => {
+  loggingOut.value = true
   try {
-    await supabase.auth.signOut()
-    await navigateTo('/')
+    await signOut($auth)
+    await navigateTo('/admin/login')
   } catch (error) {
     console.error('Error logging out:', error)
+    alert('Failed to logout. Please try again.')
+  } finally {
+    loggingOut.value = false
   }
 }
 </script>

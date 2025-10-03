@@ -266,6 +266,34 @@ community infections are on the increase.
 
 <script setup>
 import { ref } from 'vue'
+useHead({
+  title: 'Our History - A Million of Us Foundation',
+  meta: [
+    {
+      name: 'description',
+      content: 'Discover the inspiring history of A Million of Us Foundation, from our founding in 2018 to our impactful programs empowering children and youth across Nigeria and beyond.'
+    },
+    {
+      name: 'keywords',
+      content: 'A Million of Us Foundation, AMU Foundation, history, about us, mission, vision, programs, children empowerment, youth development, Nigeria NGO'
+    }
+  ],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+  ],
+})
+useSeoMeta({
+  title: 'Our History - A Million of Us Foundation',
+  description: 'Discover the inspiring history of A Million of Us Foundation, from our founding in 2018 to our impactful programs empowering children and youth across Nigeria and beyond.',
+  ogType: 'website',
+  ogImage: '/img/bs9.jpeg',
+  ogUrl: 'https://www.amufoundation.org/about/history',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@amufoundation',
+  twitterCreator: '@amufoundation',
+  twitterImage: '/img/bs9.jpeg',
+  keywords: ['A Million of Us Foundation', 'AMU Foundation', 'history', 'about us', 'mission', 'vision', 'programs', 'children empowerment', 'youth development', 'Nigeria NGO'],
+})
 
 // Component state
 const showProspectus = ref(false)

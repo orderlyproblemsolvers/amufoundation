@@ -67,42 +67,67 @@
 </template>
 
 <script setup>
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+
 definePageMeta({
   layout: false
 })
 
-const supabase = useSupabaseClient()
-const user = useSupabaseUser()
+const auth = getAuth()
+const user = ref(null)
 
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
 const errorMessage = ref('')
 
-// Redirect if already logged in
-watch(user, (newUser) => {
-  if (newUser) {
-    navigateTo('/admin')
-  }
-}, { immediate: true })
+// Monitor auth state and redirect if already logged in
+onMounted(() => {
+  onAuthStateChanged(auth, (currentUser) => {
+    user.value = currentUser
+    if (currentUser) {
+      navigateTo('/admin')
+    }
+  })
+})
 
 const handleLogin = async () => {
   loading.value = true
   errorMessage.value = ''
   
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    })
+    await signInWithEmailAndPassword(
+      auth,
+      email.value,
+      password.value
+    )
     
-    if (error) {
-      errorMessage.value = error.message
-    } else {
-      await navigateTo('/admin')
+    // Wait a brief moment for auth state to propagate
+    await new Promise(resolve => setTimeout(resolve, 100))
+    
+    // Navigate to admin dashboard
+    await navigateTo('/admin')
+  } catch (error) {
+    // Handle specific Firebase error codes
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errorMessage.value = 'Invalid email address'
+        break
+      case 'auth/user-disabled':
+        errorMessage.value = 'This account has been disabled'
+        break
+      case 'auth/user-not-found':
+        errorMessage.value = 'No account found with this email'
+        break
+      case 'auth/wrong-password':
+        errorMessage.value = 'Incorrect password'
+        break
+      case 'auth/invalid-credential':
+        errorMessage.value = 'Invalid email or password'
+        break
+      default:
+        errorMessage.value = error.message || 'An unexpected error occurred'
     }
-  } catch (err) {
-    errorMessage.value = 'An unexpected error occurred'
   } finally {
     loading.value = false
   }

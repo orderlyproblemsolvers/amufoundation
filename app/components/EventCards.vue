@@ -108,10 +108,10 @@
                 </p>
                 
                 <div class="space-y-2">
-                  <button class="w-full bg-white text-rose-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-rose-50 transition-colors duration-200">
+                  <button @click="navigateTo('/stories/events')" class="w-full bg-white text-rose-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-rose-50 transition-colors duration-200">
                     Learn More
                   </button>
-                  <button class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-rose-600 transition-colors duration-200">
+                  <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-rose-600 transition-colors duration-200">
                     Register Now
                   </button>
                 </div>
@@ -140,10 +140,10 @@
                 </p>
                 
                 <div class="space-y-2">
-                  <button class="w-full bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-50 transition-colors duration-200">
+                  <button @click="navigateTo('/stories/events')" class="w-full bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-50 transition-colors duration-200">
                     Learn More
                   </button>
-                  <button class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
+                  <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
                     Join Camp
                   </button>
                 </div>

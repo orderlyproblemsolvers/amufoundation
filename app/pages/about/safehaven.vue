@@ -352,7 +352,7 @@
         
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <!-- Donate Button -->
-          <button class="group relative bg-white text-rose-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center">
+          <button @click="navigateTo('/donate')" class="group relative bg-white text-rose-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center">
             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
@@ -440,7 +440,39 @@
 </template>
 
 <script setup>
-// Nuxt 4 component script setup
+useHead({
+  title: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation',
+  meta: [
+    { name: 'description', content: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.' },
+    { name: 'keywords', content: 'AMU Foundation, Internally Displaced Persons, IDPs, Permanent Shelter, Abuja, Nigeria, Humanitarian Aid, Community Support, Empowerment Programs' },
+    { name: 'author', content: 'AMU Foundation' },
+    { property: 'og:title', content: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation' },
+    { property: 'og:description', content: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.amufoundation.org/about/safehaven' },
+    { property: 'og:image', content: 'https://www.amufoundation.org/img/bs9.jpeg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation' },
+    { name: 'twitter:description', content: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.' },
+    { name: 'twitter:image', content: 'https://www.amufoundation.org/img/bs9.jpeg' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://www.amufoundation.org/about/safehaven' }
+  ],
+});
+
+useSeoMeta({
+  title: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation',
+  description: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.',
+  ogType: 'website',
+  ogImage: 'https://www.amufoundation.org/img/bs9.jpeg',
+  ogUrl: 'https://www.amufoundation.org/about/safehaven',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@amufoundation',
+  twitterCreator: '@amufoundation',
+  twitterImage: 'https://www.amufoundation.org/img/bs9.jpeg',
+  keywords: ['AMU Foundation', 'Internally Displaced Persons', 'IDPs', 'Permanent Shelter', 'Abuja', 'Nigeria', 'Humanitarian Aid', 'Community Support', 'Empowerment Programs'],
+});
 </script>
 
 <style scoped>

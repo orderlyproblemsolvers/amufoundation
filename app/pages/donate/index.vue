@@ -384,15 +384,24 @@ useHead({
     { name: 'description', content: 'Support AMU Foundation\'s three pillars of impact: B&S Music School, KACIS Education Support, and Safe Haven Project. Transform lives across Nigeria through secure donations.' },
     { property: 'og:title', content: 'Donate - A Million Of Us Foundation' },
     { property: 'og:description', content: 'Transform lives through education, music, and shelter. Support AMU Foundation\'s mission across Nigeria.' }
-  ]
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://www.amufoundation.org/donate' }
+  ],
 })
+
+useSeoMeta({
+  title: 'Donate - A Million Of Us Foundation | Transform Lives',
+  description: 'Support AMU Foundation\'s three pillars of impact: B&S Music School, KACIS Education Support, and Safe Haven Project. Transform lives across Nigeria through secure donations.',
+  ogTitle: 'Donate - A Million Of Us Foundation',
+  ogDescription: 'Transform lives through education, music, and shelter. Support AMU Foundation\'s mission across Nigeria.',
+  ogImage: '/img/bs9.jpeg',
+  canonical: 'https://www.amufoundation.org/donate',
+})
+
 
 // Reactive data
 const selectedProgram = ref('music')
-const customAmount = ref('')
-const isVisible = ref(false)
-
-const quickAmounts = [5000, 10000, 25000, 50000]
 
 const programs = {
   music: {

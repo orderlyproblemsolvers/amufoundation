@@ -166,6 +166,41 @@ amenities, empowerment for 1000 (ONE THOUSAND) Internally Displaced Persons
 </template>
 
 <script setup>
+useHead({
+  title: 'Our Vision & Mission | A Million of Us Foundation',
+  meta: [
+    {
+      name: 'description',
+      content: 'Discover the vision and mission of A Million of Us Foundation, dedicated to empowering children through equity, opportunity, and talent development.'
+    },
+    {
+      name: 'keywords',
+      content: 'A Million of Us Foundation, Vision, Mission, Empowerment, Equity, Opportunity, Talent Development, Children, Youth'
+    },
+    {
+      name: 'author',
+      content: 'A Million of Us Foundation'
+    },
+    {
+      property: 'og:title',
+      content: 'Our Vision & Mission | A Million of Us Foundation'
+    },
+    {
+      property: 'og:description',
+      content: 'Discover the vision and mission of A Million of Us Foundation, dedicated to empowering children through equity, opportunity, and talent development.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    }
+  ]
+})
+useSeoMeta({
+  title: 'Our Vision & Mission | A Million of Us Foundation',
+  description: 'Discover the vision and mission of A Million of Us Foundation, dedicated to empowering children through equity, opportunity, and talent development.',
+  ogType: 'website',
+  keywords: ['A Million of Us Foundation', 'Vision', 'Mission', 'Empowerment', 'Equity', 'Opportunity', 'Talent Development', 'Children', 'Youth'],
+})
 // Component props if needed
 const props = defineProps({
   showCallToAction: {

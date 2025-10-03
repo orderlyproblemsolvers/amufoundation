@@ -303,6 +303,59 @@
 
 <script setup>
 import { ref } from 'vue'
+useHead({
+  title: 'AMU Foundation - Our Team',
+  meta: [
+    {
+      name: 'description',
+      content: 'Meet the dedicated team behind AMU Foundation, committed to empowering children through education, sports, and music.'
+    },
+    {
+      name: 'keywords',
+      content: 'AMU Foundation, team, staff, leadership, education, sports, music, non-profit'
+    },
+    {
+      name: 'author',
+      content: 'AMU Foundation'
+    },
+    {
+      property: 'og:title',
+      content: 'AMU Foundation - Our Team'
+    },
+    {
+      property: 'og:description',
+      content: 'Meet the dedicated team behind AMU Foundation, committed to empowering children through education, sports, and music.'
+    },
+    {
+      property: 'og:image',
+      content: '/img/bs9.jpeg'
+    },
+    {
+      property: 'og:url',
+      content: 'https://www.amufoundation.org/about/team'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    }
+  ],
+  link: [
+    { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+  ],
+})
+
+useSeoMeta({
+  title: 'AMU Foundation - Our Team',
+  description: 'Meet the dedicated team behind AMU Foundation, committed to empowering children through education, sports, and music.',
+  ogType: 'website',
+  ogImage: '/img/bs9.jpeg',
+  ogUrl: 'https://www.amufoundation.org/about/team',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@amufoundation',
+  twitterCreator: '@amufoundation',
+  twitterImage: '/img/bs9.jpeg',
+  keywords: ['AMU Foundation', 'team', 'staff', 'leadership', 'education', 'sports', 'music', 'non-profit'],
+})
 
 // Team data from the JSON
 const teamMembers = ref([

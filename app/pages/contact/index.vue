@@ -264,51 +264,6 @@
       </div>
     </section>
 
-    <!-- Submission Stats (only visible to authenticated users) -->
-    <section v-if="user" class="relative bg-gray-50 py-16">
-      <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
-        <div class="bg-white rounded-lg shadow-lg p-8 border border-gray-100">
-          <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Submission Statistics
-          </h2>
-          
-          <div v-if="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Total Submissions -->
-            <div class="bg-blue-50 rounded-lg p-6 text-center">
-              <Icon name="i-lucide-inbox" class="w-8 h-8 text-blue-600 mx-auto mb-2" />
-              <h3 class="text-2xl font-bold text-blue-600">{{ stats.total_submissions }}</h3>
-              <p class="text-sm text-blue-700">Total Submissions</p>
-            </div>
-            
-            <!-- New Submissions -->
-            <div class="bg-yellow-50 rounded-lg p-6 text-center">
-              <Icon name="i-lucide-bell" class="w-8 h-8 text-yellow-600 mx-auto mb-2" />
-              <h3 class="text-2xl font-bold text-yellow-600">{{ stats.new_submissions }}</h3>
-              <p class="text-sm text-yellow-700">New Submissions</p>
-            </div>
-            
-            <!-- This Week -->
-            <div class="bg-green-50 rounded-lg p-6 text-center">
-              <Icon name="i-lucide-calendar-days" class="w-8 h-8 text-green-600 mx-auto mb-2" />
-              <h3 class="text-2xl font-bold text-green-600">{{ stats.week_submissions }}</h3>
-              <p class="text-sm text-green-700">This Week</p>
-            </div>
-            
-            <!-- This Month -->
-            <div class="bg-purple-50 rounded-lg p-6 text-center">
-              <Icon name="i-lucide-calendar-range" class="w-8 h-8 text-purple-600 mx-auto mb-2" />
-              <h3 class="text-2xl font-bold text-purple-600">{{ stats.month_submissions }}</h3>
-              <p class="text-sm text-purple-700">This Month</p>
-            </div>
-          </div>
-
-          <div v-else class="text-center text-gray-500">
-            Loading statistics...
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Call to Action Section -->
     <section class="relative bg-gray-50 py-16">
       <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12 text-center">
@@ -325,7 +280,7 @@
             class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
           >
             <NuxtLink
-              to="/events"
+              to="/stories/events"
               class="inline-flex items-center justify-center px-8 py-4 bg-rose-700 text-white font-semibold rounded-lg hover:bg-rose-800 focus:outline-none focus:ring-2 focus:ring-rose-700 focus:ring-offset-2 transition-colors duration-200 space-x-2"
             >
               <Icon name="i-lucide-calendar" class="w-5 h-5" />
@@ -346,79 +301,82 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
-// Assuming you have Supabase client available
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
+const { $firestore } = useNuxtApp()
 
 // Form data
 const formData = ref({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+})
 
-const isSubmitting = ref(false);
-const showMessage = ref(false);
-const message = ref("");
-const messageType = ref("success"); // 'success' or 'error'
-
-// Show message function
-const showNotification = (msg, type = "success") => {
-  message.value = msg;
-  messageType.value = type;
-  showMessage.value = true;
-  
-  setTimeout(() => {
-    showMessage.value = false;
-  }, 5000);
-};
+// UI state
+const isSubmitting = ref(false)
+const showMessage = ref(false)
+const message = ref('')
+const messageType = ref('success')
 
 // Handle form submission
 const handleSubmit = async () => {
-  isSubmitting.value = true;
-
   try {
-    // Submit to Supabase
-    const { data, error } = await supabase
-      .from('contact_submissions')
-      .insert([
-        {
-          name: formData.value.name,
-          email: formData.value.email,
-          subject: formData.value.subject,
-          message: formData.value.message
-        }
-      ])
-      .select();
-
-    if (error) {
-      throw error;
+    isSubmitting.value = true
+    
+    // Basic validation
+    if (!formData.value.name || !formData.value.email || !formData.value.subject || !formData.value.message) {
+      showNotification('Please fill in all required fields', 'error')
+      return
     }
 
-    // Reset form on success
-    formData.value = {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    };
+    // Prepare submission data
+    const submissionData = {
+      name: formData.value.name.trim(),
+      email: formData.value.email.trim().toLowerCase(),
+      subject: formData.value.subject,
+      message: formData.value.message.trim(),
+      status: 'new',
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
+    }
 
-    showNotification("Thank you for your message! We will get back to you soon.", "success");
-    
+    // Submit to Firebase
+    await addDoc(collection($firestore, 'contact_submissions'), submissionData)
+
+    // Success - reset form and show message
+    showNotification('Message sent successfully! We\'ll get back to you soon.', 'success')
+    resetForm()
 
   } catch (error) {
-    console.error('Error submitting form:', error);
-    showNotification("There was an error sending your message. Please try again.", "error");
+    console.error('Submission error:', error)
+    showNotification('An unexpected error occurred. Please try again.', 'error')
   } finally {
-    isSubmitting.value = false;
+    isSubmitting.value = false
   }
-};
+}
 
+// Reset form
+const resetForm = () => {
+  formData.value = {
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  }
+}
 
-
+// Show notification
+const showNotification = (msg, type) => {
+  message.value = msg
+  messageType.value = type
+  showMessage.value = true
+  
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    showMessage.value = false
+  }, 5000)
+}
 
 // SEO Meta
 useHead({
@@ -430,6 +388,33 @@ useHead({
         "Get in touch with AMU Foundation. Contact us for inquiries about our programs, volunteer opportunities, partnerships, and more. We're here to help create opportunities for children.",
     },
   ],
-});
+  link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
 
+})
+
+useSeoMeta({
+  title: "Contact Us - AMU Foundation",
+  description:
+    "Get in touch with AMU Foundation. Contact us for inquiries about our programs, volunteer opportunities, partnerships, and more. We're here to help create opportunities for children.",
+  ogType: "website",
+  ogImage: "/img/bs9.jpeg",
+  ogUrl: "https://www.amufoundation.org/contact",
+  twitterCard: "summary_large_image",
+  twitterSite: "@amufoundation",
+  twitterCreator: "@amufoundation",
+  twitterImage: "/img/bs9.jpeg",
+  keywords: [
+    "AMU Foundation",
+    "contact",
+    "inquiries",
+    "volunteer",
+    "partnerships",
+    "donations",
+    "support",
+    "children empowerment",
+    "education",
+    "sports",
+    "music",
+  ],
+})
 </script>

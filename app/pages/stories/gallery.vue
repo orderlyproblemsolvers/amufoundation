@@ -157,6 +157,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
+
 interface GalleryItem {
   id: number
   src: string

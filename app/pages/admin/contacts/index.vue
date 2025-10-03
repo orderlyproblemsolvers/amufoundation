@@ -25,7 +25,7 @@
 
     <!-- Statistics Cards -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div v-if="stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div class="bg-white rounded-lg shadow p-6">
           <div class="flex items-center">
             <div class="p-2 bg-blue-100 rounded-lg">
@@ -33,7 +33,7 @@
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-gray-600">Total Submissions</p>
-              <p class="text-2xl font-bold text-gray-900">{{ stats.total_submissions }}</p>
+              <p class="text-2xl font-bold text-gray-900">{{ statsComputed.total }}</p>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-gray-600">New</p>
-              <p class="text-2xl font-bold text-gray-900">{{ stats.new_submissions }}</p>
+              <p class="text-2xl font-bold text-gray-900">{{ statsComputed.new }}</p>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-gray-600">In Progress</p>
-              <p class="text-2xl font-bold text-gray-900">{{ stats.in_progress_submissions }}</p>
+              <p class="text-2xl font-bold text-gray-900">{{ statsComputed.in_progress }}</p>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-gray-600">Resolved</p>
-              <p class="text-2xl font-bold text-gray-900">{{ stats.resolved_submissions }}</p>
+              <p class="text-2xl font-bold text-gray-900">{{ statsComputed.resolved }}</p>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
               <option value="new">New</option>
               <option value="in_progress">In Progress</option>
               <option value="resolved">Resolved</option>
-              <option value="closed">Closed</option>
+              <option value="archived">Archived</option>
             </select>
           </div>
 
@@ -142,8 +142,8 @@
         <div class="px-6 py-4 border-b border-gray-200">
           <h2 class="text-lg font-medium text-gray-900">
             Submissions 
-            <span v-if="submissions.length > 0" class="text-sm font-normal text-gray-600">
-              ({{ submissions.length }} total)
+            <span v-if="filteredSubmissions.length > 0" class="text-sm font-normal text-gray-600">
+              ({{ filteredSubmissions.length }} total)
             </span>
           </h2>
         </div>
@@ -153,7 +153,7 @@
           <p class="text-gray-500">Loading submissions...</p>
         </div>
 
-        <div v-else-if="submissions.length === 0" class="p-8 text-center">
+        <div v-else-if="filteredSubmissions.length === 0" class="p-8 text-center">
           <Icon name="i-lucide-inbox" class="w-16 h-16 text-gray-300 mx-auto mb-4" />
           <p class="text-lg text-gray-500">No submissions found</p>
           <p class="text-sm text-gray-400">Try adjusting your filters or search query</p>
@@ -181,12 +181,12 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="submission in submissions" :key="submission.id" class="hover:bg-gray-50">
+              <tr v-for="submission in filteredSubmissions" :key="submission.id" class="hover:bg-gray-50">
                 <td class="px-6 py-4">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
-                      <div class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
-                        <span class="text-sm font-medium text-gray-700">
+                      <div class="h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center">
+                        <span class="text-sm font-medium text-rose-700">
                           {{ submission.name.charAt(0).toUpperCase() }}
                         </span>
                       </div>
@@ -212,22 +212,24 @@
                     <option value="new">New</option>
                     <option value="in_progress">In Progress</option>
                     <option value="resolved">Resolved</option>
-                    <option value="closed">Closed</option>
+                    <option value="archived">Archived</option>
                   </select>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ formatDate(submission.created_at) }}
+                  {{ formatDate(submission.createdAt) }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
                     @click="viewSubmission(submission)"
                     class="text-rose-700 hover:text-rose-900 mr-3"
+                    title="View details"
                   >
                     <Icon name="i-lucide-eye" class="w-4 h-4" />
                   </button>
                   <button
                     @click="deleteSubmission(submission.id)"
                     class="text-red-600 hover:text-red-900"
+                    title="Delete submission"
                   >
                     <Icon name="i-lucide-trash-2" class="w-4 h-4" />
                   </button>
@@ -271,29 +273,29 @@
               <select
                 :value="selectedSubmission.status"
                 @change="updateStatus(selectedSubmission.id, $event.target.value)"
-                class="mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-rose-700 focus:border-rose-700 text-sm"
+                class="mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-rose-700 focus:border-rose-700 text-sm w-full"
               >
                 <option value="new">New</option>
                 <option value="in_progress">In Progress</option>
                 <option value="resolved">Resolved</option>
-                <option value="closed">Closed</option>
+                <option value="archived">Archived</option>
               </select>
             </div>
           </div>
           
           <div>
             <label class="block text-sm font-medium text-gray-700">Message</label>
-            <div class="mt-1 p-3 border border-gray-300 rounded-md bg-gray-50">
+            <div class="mt-1 p-3 border border-gray-300 rounded-md bg-gray-50 max-h-64 overflow-y-auto">
               <p class="text-sm text-gray-900 whitespace-pre-wrap">{{ selectedSubmission.message }}</p>
             </div>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-500">
             <div>
-              <span class="font-medium">Created:</span> {{ formatDate(selectedSubmission.created_at) }}
+              <span class="font-medium">Created:</span> {{ formatDate(selectedSubmission.createdAt) }}
             </div>
             <div>
-              <span class="font-medium">Updated:</span> {{ formatDate(selectedSubmission.updated_at) }}
+              <span class="font-medium">Updated:</span> {{ formatDate(selectedSubmission.updatedAt) }}
             </div>
           </div>
         </div>
@@ -319,194 +321,195 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc, where } from 'firebase/firestore'
 
 // Ensure user is authenticated
 definePageMeta({
-  middleware: 'admin'
-});
+  middleware: 'admin',
+  layout: false
+})
 
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
+const { $firestore } = useNuxtApp()
 
 // Reactive data
-const submissions = ref([]);
-const stats = ref(null);
-const isLoading = ref(false);
-const selectedSubmission = ref(null);
+const submissions = ref([])
+const isLoading = ref(true)
+const selectedSubmission = ref(null)
 
 // Filters
-const statusFilter = ref("");
-const subjectFilter = ref("");
-const searchQuery = ref("");
+const statusFilter = ref('')
+const subjectFilter = ref('')
+const searchQuery = ref('')
 
-// Load submissions
-const loadSubmissions = async () => {
-  if (!user.value) return;
+// Computed statistics
+const statsComputed = computed(() => {
+  const total = submissions.value.length
+  const newCount = submissions.value.filter(s => s.status === 'new').length
+  const inProgress = submissions.value.filter(s => s.status === 'in_progress').length
+  const resolved = submissions.value.filter(s => s.status === 'resolved').length
   
-  isLoading.value = true;
+  return {
+    total,
+    new: newCount,
+    in_progress: inProgress,
+    resolved
+  }
+})
+
+// Filtered submissions
+const filteredSubmissions = computed(() => {
+  let filtered = submissions.value
+
+  // Filter by status
+  if (statusFilter.value) {
+    filtered = filtered.filter(s => s.status === statusFilter.value)
+  }
+
+  // Filter by subject
+  if (subjectFilter.value) {
+    filtered = filtered.filter(s => s.subject === subjectFilter.value)
+  }
+
+  // Filter by search query
+  if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase()
+    filtered = filtered.filter(s => 
+      s.name.toLowerCase().includes(query) || 
+      s.email.toLowerCase().includes(query)
+    )
+  }
+
+  return filtered
+})
+
+// Real-time listener
+let unsubscribe = null
+
+// Load submissions with real-time updates
+const loadSubmissions = () => {
+  isLoading.value = true
   
   try {
-    let query = supabase
-      .from('contact_submissions')
-      .select('*')
-      .order('created_at', { ascending: false });
+    const q = query(
+      collection($firestore, 'contact_submissions'),
+      orderBy('createdAt', 'desc')
+    )
 
-    // Apply filters
-    if (statusFilter.value) {
-      query = query.eq('status', statusFilter.value);
-    }
-    
-    if (subjectFilter.value) {
-      query = query.eq('subject', subjectFilter.value);
-    }
-    
-    if (searchQuery.value) {
-      query = query.or(`name.ilike.%${searchQuery.value}%,email.ilike.%${searchQuery.value}%`);
-    }
-
-    const { data, error } = await query;
-
-    if (error) throw error;
-
-    submissions.value = data || [];
+    // Set up real-time listener
+    unsubscribe = onSnapshot(q, (snapshot) => {
+      submissions.value = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      isLoading.value = false
+    })
   } catch (error) {
-    console.error('Error loading submissions:', error);
-  } finally {
-    isLoading.value = false;
+    console.error('Error loading submissions:', error)
+    alert('Failed to load submissions. Please try again.')
+    isLoading.value = false
   }
-};
-
-// Load statistics
-const loadStats = async () => {
-  if (!user.value) return;
-  
-  try {
-    const { data, error } = await supabase
-      .from('contact_submissions_stats')
-      .select('*')
-      .single();
-
-    if (error) throw error;
-
-    stats.value = data;
-  } catch (error) {
-    console.error('Error loading stats:', error);
-  }
-};
+}
 
 // Update submission status
 const updateStatus = async (id, newStatus) => {
-  if (!user.value) return;
-  
   try {
-    const { error } = await supabase
-      .from('contact_submissions')
-      .update({ status: newStatus })
-      .eq('id', id);
+    await updateDoc(doc($firestore, 'contact_submissions', id), {
+      status: newStatus,
+      updatedAt: new Date()
+    })
 
-    if (error) throw error;
-
-    // Update local data
-    const submission = submissions.value.find(s => s.id === id);
-    if (submission) {
-      submission.status = newStatus;
-      submission.updated_at = new Date().toISOString();
-    }
-
+    // Update selected submission if viewing
     if (selectedSubmission.value && selectedSubmission.value.id === id) {
-      selectedSubmission.value.status = newStatus;
-      selectedSubmission.value.updated_at = new Date().toISOString();
+      selectedSubmission.value.status = newStatus
+      selectedSubmission.value.updatedAt = new Date()
     }
-
-    // Reload stats
-    await loadStats();
   } catch (error) {
-    console.error('Error updating status:', error);
+    console.error('Error updating status:', error)
+    alert('Failed to update status. Please try again.')
   }
-};
+}
 
 // Delete submission
 const deleteSubmission = async (id) => {
-  if (!user.value) return;
-  
   if (!confirm('Are you sure you want to delete this submission? This action cannot be undone.')) {
-    return;
+    return
   }
   
   try {
-    const { error } = await supabase
-      .from('contact_submissions')
-      .delete()
-      .eq('id', id);
-
-    if (error) throw error;
-
-    // Remove from local data
-    submissions.value = submissions.value.filter(s => s.id !== id);
+    await deleteDoc(doc($firestore, 'contact_submissions', id))
     
-    // Reload stats
-    await loadStats();
+    // Close modal if viewing deleted submission
+    if (selectedSubmission.value && selectedSubmission.value.id === id) {
+      closeModal()
+    }
   } catch (error) {
-    console.error('Error deleting submission:', error);
+    console.error('Error deleting submission:', error)
+    alert('Failed to delete submission. Please try again.')
   }
-};
+}
 
 // View submission
 const viewSubmission = (submission) => {
-  selectedSubmission.value = submission;
-};
+  selectedSubmission.value = { ...submission }
+}
 
 // Close modal
 const closeModal = () => {
-  selectedSubmission.value = null;
-};
+  selectedSubmission.value = null
+}
 
 // Utility functions
 const formatSubject = (subject) => {
   return subject.split('-').map(word => 
     word.charAt(0).toUpperCase() + word.slice(1)
-  ).join(' ');
-};
+  ).join(' ')
+}
 
-const formatDate = (dateString) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
+const formatDate = (date) => {
+  if (!date) return 'N/A'
+  
+  // Handle Firebase Timestamp
+  const jsDate = date.toDate ? date.toDate() : new Date(date)
+  
+  return jsDate.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
     hour: '2-digit',
     minute: '2-digit'
-  });
-};
+  })
+}
 
 const getStatusColor = (status) => {
   const colors = {
     'new': 'bg-yellow-100 text-yellow-800',
     'in_progress': 'bg-blue-100 text-blue-800',
     'resolved': 'bg-green-100 text-green-800',
-    'closed': 'bg-gray-100 text-gray-800'
-  };
-  return colors[status] || colors.new;
-};
+    'archived': 'bg-gray-100 text-gray-800'
+  }
+  return colors[status] || colors.new
+}
 
 // Debounced search
-let searchTimeout;
+let searchTimeout
 const debounceSearch = () => {
-  clearTimeout(searchTimeout);
+  clearTimeout(searchTimeout)
   searchTimeout = setTimeout(() => {
-    loadSubmissions();
-  }, 300);
-};
+    // Search is handled by computed property
+  }, 300)
+}
 
 // Load data on mount
-onMounted(async () => {
-  if (user.value) {
-    await Promise.all([
-      loadSubmissions(),
-      loadStats()
-    ]);
+onMounted(() => {
+  loadSubmissions()
+})
+
+// Cleanup on unmount
+onUnmounted(() => {
+  if (unsubscribe) {
+    unsubscribe()
   }
-});
+})
 
 // SEO Meta
 useHead({
@@ -517,5 +520,5 @@ useHead({
       content: "Admin dashboard for managing contact form submissions from the AMU Foundation website.",
     },
   ],
-});
+})
 </script>

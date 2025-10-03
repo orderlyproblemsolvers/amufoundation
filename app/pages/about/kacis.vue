@@ -591,6 +591,42 @@ useSeoMeta({
   keywords:
     "KACIS, Keep A Child In School, scholarship, education, AMU Foundation, financial aid, student support",
   ogImage: "/img/kacis-hero.jpg",
+  ogUrl: "https://www.amufoundation.org/about/kacis",
+  twitterCard: "summary_large_image",
+  twitterSite: "@amufoundation",
+  twitterCreator: "@amufoundation",
+  twitterImage: "/img/bs4.jpg",
+
+});
+useHead({
+  title: "KACIS - Keep A Child In School | AMU Foundation",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Join the KACIS program to help keep children in school. Download scholarship application forms and learn about our educational support initiatives.",
+    },
+    {
+      name: "keywords",
+      content:
+        "KACIS, Keep A Child In School, scholarship, education, AMU Foundation, financial aid, student support",
+    },
+    { name: "author", content: "AMU Foundation" },
+    { property: "og:title", content: "KACIS - Keep A Child In School | AMU Foundation" },
+    {
+      property: "og:description",
+      content:
+        "Join the KACIS program to help keep children in school. Download scholarship application forms and learn about our educational support initiatives.",
+    },
+    { property: "og:image", content: "/img/bs4.jpg" },
+    { property: "og:url", content: "https://www.amufoundation.org/about/kacis" },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:site", content: "@amufoundation" },
+    { name: "twitter:creator", content: "@amufoundation" },
+    { name: "twitter:image", content: "/img/bs4.jpg" },
+  ],
+  link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
 });
 </script>
 
@@ -627,20 +663,6 @@ html {
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
-
-/* Button hover effects */
-/* .btn-primary {
-  @apply bg-rose-700 hover:bg-rose-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
-}
-
-.btn-secondary {
-  @apply border-2 border-rose-700 text-rose-700 hover:bg-rose-700 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
-} */
-
-/* Card hover effects */
-/* .card-hover {
-  @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1; */
-/* } */
 
 /* Responsive text sizing */
 @media (max-width: 640px) {
