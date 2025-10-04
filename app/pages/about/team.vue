@@ -479,7 +479,7 @@ const teamMembers = ref([
     "image": "/img/anne.jpg",
     "background": "Non-profit executive and humanitarian worker",
     "current_role": "Governing executive and Operations Head at Respire (non-profit based in Abuja Nigeria)",
-    "description": "Miss Anne Aburime has distinguished herself as a giant amongst men, with her selfless and relentless desire to meet the needs of the underprivileged in society, as well as making a difference in the life of everyone she comes across.",
+    "description": "Mrs. Anne Aburime has distinguished herself as a giant amongst men, with her selfless and relentless desire to meet the needs of the underprivileged in society, as well as making a difference in the life of everyone she comes across.",
     "projects": [
       "Renovation of classrooms in Bama/Gwoza IDP camp in Durumi Abuja",
       "Various educational and developmental projects in Abuja"
