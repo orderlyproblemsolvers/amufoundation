@@ -180,7 +180,7 @@ const galleryItems = ref<GalleryItem[]>([
     id: 2,
     src: '/vid/vid1.mp4',
     alt: 'AMU Foundation Video 1',
-    date: 'March 2024',
+    date: 'December 2018',
     orientation: 'landscape',
     type: 'video',
     // thumbnail: '/img/bs1.webp' // You can create actual video thumbnails
@@ -197,7 +197,7 @@ const galleryItems = ref<GalleryItem[]>([
     id: 4,
     src: '/vid/vid2.mp4',
     alt: 'AMU Foundation Video 2',
-    date: 'February 2024',
+    date: 'December 2018',
     orientation: 'landscape',
     type: 'video',
     // thumbnail: '/img/bs3.webp' // You can create actual video thumbnails
@@ -229,7 +229,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 8,
     src: '/img/bs6.jpg',
-    alt: 'AMU Foundation Event 6',
+    alt: 'AMU Foundation Event 8',
     date: 'October 2023',
     orientation: 'portrait',
     type: 'image'
@@ -237,7 +237,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 9,
     src: '/img/bs9.jpeg',
-    alt: 'AMU Foundation Event 7',
+    alt: 'AMU Foundation Event 9',
     date: 'September 2023',
     orientation: 'portrait',
     type: 'image'
@@ -245,7 +245,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 10,
     src: '/img/bs7.jpeg',
-    alt: 'AMU Foundation Event 8',
+    alt: 'AMU Foundation Event 10',
     date: 'August 2023',
     orientation: 'portrait',
     type: 'image'
@@ -253,7 +253,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 11,
     src: '/img/bs8.jpeg',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 11',
     date: 'July 2023',
     orientation: 'portrait',
     type: 'image'
@@ -261,23 +261,23 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 12,
     src: '/img/bs10.jpg',
-    alt: 'AMU Foundation Event 9',
-    date: 'July 2023',
+    alt: 'AMU Foundation Event 12',
+    date: 'December 2018',
     orientation: 'landscape',
     type: 'image'
   },
   {
     id: 13,
     src: '/img/bs11.jpg',
-    alt: 'AMU Foundation Event 9',
-    date: 'July 2023',
+    alt: 'AMU Foundation Event 13',
+    date: 'December 2018',
     orientation: 'landscape',
     type: 'image'
   },
   {
     id: 14,
     src: '/img/bs12.jpg',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 14',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -285,7 +285,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 15,
     src: '/img/bs13.jpg',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 15',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -293,7 +293,7 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 16,
     src: '/img/bs14.jpg',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 16',
     date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
@@ -301,9 +301,33 @@ const galleryItems = ref<GalleryItem[]>([
   {
     id: 17,
     src: '/img/bs15.jpg',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 17',
     date: 'July 2023',
     orientation: 'portrait',
+    type: 'image'
+  },
+  {
+    id: 18,
+    src: '/img/bs16.jpg',
+    alt: 'AMU Foundation Event 18',
+    date: 'June 2019',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 19,
+    src: '/img/bs17.jpg',
+    alt: 'AMU Foundation Event 19',
+    date: 'June 2019',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 20,
+    src: '/img/bs18.jpg',
+    alt: 'AMU Foundation Event 20',
+    date: 'June 2019',
+    orientation: 'landscape',
     type: 'image'
   },
 ])

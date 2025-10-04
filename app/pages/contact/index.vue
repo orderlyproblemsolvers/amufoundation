@@ -89,7 +89,7 @@
                       Phone Number
                     </h3>
                     <p class="text-gray-600">
-                      +234 (0)91 347 91980
+                      +234 (0)802 500 7333
                     </p>
                   </div>
                 </div>

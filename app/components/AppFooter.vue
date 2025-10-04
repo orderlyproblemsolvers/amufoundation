@@ -46,8 +46,9 @@
             </div>
             
             <div class="contact-details">
-              <p><i class="fas fa-phone"></i> +234 (0)91 347 91980</p>
-              <p><i class="fas fa-envelope"></i> info.go@amufoundation.org</p>
+              <p><Icon name="i-lucide-phone"/>+234 (0)802 500 7333</p>
+              <p><Icon name="i-lucide-mail"/> info.go@amufoundation.org</p>
+              <a class="underline" href="https://studylifeabroad.com">www.bs-education.com</a>
             </div>
           </div>
         </div>
@@ -65,10 +66,7 @@
           <div class="social-links">
             <h4>Follow Us:</h4>
             <div class="social-icons">
-              <a href="#" aria-label="Facebook"><Icon name="i-lucide-facebook"/></a>
-              <a href="#" aria-label="Twitter"><Icon name="i-lucide-twitter"/></a>
-              <a href="#" aria-label="Instagram"><Icon name="i-lucide-instagram"/></a>
-              <a href="#" aria-label="LinkedIn"><Icon name="i-lucide-linkedin"/></a>
+              <a href="https://www.facebook.com/share/g/17J4xPpo9C/" aria-label="Facebook"><Icon name="i-lucide-facebook"/></a>
             </div>
           </div>
         </div>

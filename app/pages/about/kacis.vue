@@ -521,7 +521,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">Phone Support</h3>
             <p class="opacity-90 mb-2">Call us during business hours</p>
-            <p class="font-semibold">+234 (0)91 347 91980</p>
+            <p class="font-semibold">+234 (0)802 500 7333</p>
           </div>
 
           <div class="text-center">
@@ -533,6 +533,7 @@
             <h3 class="text-xl font-semibold mb-2">Email Support</h3>
             <p class="opacity-90 mb-2">Send us your questions</p>
             <p class="font-semibold">info.go@amufoundation.org</p>
+            <p>Or visit <a class="underline" href="https://studylifeabroad.com">www.bs-education.com</a></p>
           </div>
 
           <div class="text-center">

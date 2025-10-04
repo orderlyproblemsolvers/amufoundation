@@ -113,7 +113,7 @@
             Providing shelter, care, and hope for vulnerable children in safe environments.
           </p>
           <div class="text-xs xs:text-sm text-rose-700 font-medium">
-            80+ children sheltered
+            Proposed 1000+ shelter
           </div>
         </div>
       </div>
@@ -317,7 +317,7 @@
               <Icon name="i-lucide-phone" class="w-8 h-8 text-rose-700" />
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Call Us</h3>
-            <p class="text-gray-600 mb-2">+234-913-479-1980</p>
+            <p class="text-gray-600 mb-2">+234-802-500-7333</p>
             <p class="text-sm text-gray-500">Official Line</p>
           </div>
 
@@ -463,7 +463,7 @@ const programs = {
     gradientClass: "bg-gradient-to-br from-green-600 to-green-800",
     icon: "i-lucide-home",
     description: "Every child deserves a safe place to call home. Our Safe Haven Project provides emergency shelter, builds transitional housing, and creates safe spaces where vulnerable children can heal, learn, and grow in a nurturing environment.",
-    impact: "3 safe houses built • 80+ children sheltered • 24/7 care provided",
+    impact: "Proposed 1000+ people shelter• 24/7 care provided",
     needs: [
       { item: "Monthly shelter maintenance", amount: "₦50,000", icon: "🏠" },
       { item: "Food supplies for 20 children", amount: "₦30,000", icon: "🍽️" },
