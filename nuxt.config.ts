@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       ]
     },
   },
-  modules: ['@nuxt/image', '@nuxt/ui',],
+  modules: ['@nuxt/image', '@nuxt/ui', '@nuxtjs/seo'],
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [
@@ -37,5 +37,23 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'netlify'
+  },
+  site: {
+    url: 'https://amufoundation.org',
+    name: 'AMU Foundation',
+    description: 'AMU Foundation is a non-profit organization dedicated to supporting the academic and professional growth of children.',
+    defaultLocale: 'en'
+  },
+  
+  robots: {
+    disallow: ['/admin']
+  },
+  
+  ogImage: {
+    enabled: true
+  },
+  
+  linkChecker: {
+    enabled: true
   }
 })

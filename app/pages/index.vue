@@ -60,4 +60,5 @@ useSeoMeta({
   keywords: ['AMU Foundation', 'education', 'sports', 'music', 'children empowerment', 'non-profit', 'charity', 'skill development', 'advocacy'],
 })
 
+defineOgImageComponent('AmuFoundation')
 </script>
