@@ -67,13 +67,14 @@
 </template>
 
 <script setup>
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 
 definePageMeta({
   layout: false
 })
 
-const auth = getAuth()
+// Only run on client side
+const { $auth } = process.client ? useNuxtApp() : { $auth: null }
 const user = ref(null)
 
 const email = ref('')
@@ -81,9 +82,11 @@ const password = ref('')
 const loading = ref(false)
 const errorMessage = ref('')
 
-// Monitor auth state and redirect if already logged in
+// Monitor auth state and redirect if already logged in (client-side only)
 onMounted(() => {
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  if (!$auth) return
+  
+  const unsubscribe = onAuthStateChanged($auth, (currentUser) => {
     user.value = currentUser
     if (currentUser) {
       navigateTo('/admin')
@@ -94,12 +97,14 @@ onMounted(() => {
 })
 
 const handleLogin = async () => {
+  if (!$auth) return
+  
   loading.value = true
   errorMessage.value = ''
   
   try {
     await signInWithEmailAndPassword(
-      auth,
+      $auth,
       email.value,
       password.value
     )

@@ -78,7 +78,7 @@
         </p>
         <div class="mt-8 flex justify-center space-x-4">
           <ButtonPrimary
-            path="/events"
+            path="/stories/events"
             title="Register"
             icon="i-lucide-arrow-right"
           />

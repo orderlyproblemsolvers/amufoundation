@@ -5,13 +5,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (to.path === '/admin/login') return
   if (!to.path.startsWith('/admin')) return
 
+  // Only run on client side
   if (process.client) {
     const { $auth } = useNuxtApp()
 
-    // If user is already available, allow
-    if ($auth.currentUser) return
-
-    // Wait for Firebase to resolve
+    // Wait for Firebase to resolve before allowing navigation
     return new Promise((resolve) => {
       const unsubscribe = onAuthStateChanged($auth, (user) => {
         unsubscribe()

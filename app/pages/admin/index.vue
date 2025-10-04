@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div v-if="user" class="min-h-screen bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
@@ -146,7 +146,7 @@
 </template>
 
 <script setup>
-import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
+import { signOut, onAuthStateChanged } from 'firebase/auth'
 
 // Protect this page with admin middleware
 definePageMeta({
@@ -164,7 +164,7 @@ const { $auth } = useNuxtApp()
 const user = ref(null)
 const loggingOut = ref(false)
 
-// Get current user on mount
+// Get current user on mount (client-side only)
 onMounted(() => {
   onAuthStateChanged($auth, (currentUser) => {
     user.value = currentUser
