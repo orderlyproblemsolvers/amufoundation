@@ -377,6 +377,11 @@ Abuja, Nigeria</p>
 <script setup>
 import { ref, onMounted } from 'vue'
 
+defineOgImageComponent('AmuFoundation', {
+  title: 'AMU Foundation',
+  description: 'Donate to Empower Children through Education, Music and Shelter'
+})
+
 // Page meta - matching SEO approach
 useHead({
   title: 'Donate - A Million Of Us Foundation | Transform Lives',

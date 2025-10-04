@@ -440,6 +440,11 @@
 </template>
 
 <script setup>
+defineOgImageComponent('AmuFoundation', {
+  title: 'AMU Foundation',
+  description: 'Creating a better world for children through education, music, and sports.'
+})
+
 useHead({
   title: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation',
   meta: [

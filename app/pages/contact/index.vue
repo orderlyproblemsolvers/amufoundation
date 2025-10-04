@@ -302,6 +302,10 @@
 
 <script setup>
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+defineOgImageComponent('AmuFoundation', {
+  title: 'AMU Foundation',
+  description: 'Partnering to create opportunities for children through education, sports, and music'
+})
 
 const { $firestore } = useNuxtApp()
 

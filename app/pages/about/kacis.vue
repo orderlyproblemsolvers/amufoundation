@@ -556,6 +556,10 @@
 
 <script setup>
 import { ref } from "vue";
+defineOgImageComponent('AmuFoundation', {
+  title: 'AMU Foundation',
+  description: 'Keep A Child In School Program'
+})
 
 const eligibilitySection = ref(null);
 const applicationSection = ref(null);

@@ -10,33 +10,35 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="h-full w-full flex flex-col justify-between bg-gradient-to-br from-rose-700 via-rose-800 to-rose-900 p-16">
+  <div style="display: flex; height: 100%; width: 100%; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg, #be123c 0%, #9f1239 50%, #881337 100%); padding: 64px;">
     <!-- Logo and Title Section -->
-    <div class="flex items-center gap-8">
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 32px;">
       <!-- AMU Logo -->
-      <div class="w-32 h-32 bg-white rounded-2xl flex items-center justify-center shadow-2xl">
+      <div style="display: flex; width: 128px; height: 128px; background-color: white; border-radius: 16px; align-items: center; justify-content: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
         <img 
           src="/img/amulogo.png" 
           alt="AMU Logo" 
-          class="w-32 h-32 object-contain"
+          width="128"
+          height="128"
+          style="object-fit: contain;"
         />
       </div>
       
-      <div class="flex flex-col">
-        <h1 class="text-7xl font-black text-white mb-2 tracking-tight">
+      <div style="display: flex; flex-direction: column;">
+        <h1 style="font-size: 72px; font-weight: 900; color: white; margin: 0; letter-spacing: -0.025em;">
           {{ title }}
         </h1>
       </div>
     </div>
 
     <!-- Description Section -->
-    <div class="flex flex-col gap-6">
-      <p class="text-4xl font-semibold text-white leading-relaxed">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <p style="font-size: 40px; font-weight: 600; color: white; margin: 0; line-height: 1.5;">
         {{ description }}
       </p>
       
       <!-- Decorative line -->
-      <div class="w-32 h-2 bg-white rounded-full"></div>
+      <div style="width: 128px; height: 8px; background-color: white; border-radius: 9999px;"></div>
     </div>
   </div>
 </template>
