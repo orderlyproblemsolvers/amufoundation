@@ -113,7 +113,7 @@ community infections are on the increase.
               <div class="bg-rose-700 rounded-full w-3 h-3 mt-2 mr-4 flex-shrink-0"></div>
               <div>
                 <h4 class="font-semibold text-gray-900">Primary Focus</h4>
-                <p class="text-gray-600">Children and youth ages 4-18 years</p>
+                <p class="text-gray-600">Children and youth</p>
               </div>
             </div>
             <div class="flex items-start">

@@ -59,7 +59,7 @@
           <p class="about-text">
             A Million of Us (AMU) Foundation was established by a group of people, 
             passionate and desiring to make a change in the life and development of 
-            young people between ages 4-18 in Nigeria...
+            children and youth in Nigeria...
           </p>
           <NuxtLink to="/about/vision-mission" class="read-more">Read More</NuxtLink>
           

@@ -66,7 +66,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
       <div class="text-center py-12">
         <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
-          Welcome Believe <span class="text-rose-700 leckerli">Talent</span> Should <br />
+          We Believe <span class="text-rose-700 leckerli">Talent</span> Should <br />
           Open Doors.
         </h1>
         <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">

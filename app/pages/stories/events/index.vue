@@ -150,7 +150,7 @@
                       <Icon name="i-lucide-users" class="w-4 h-4 text-blue-600" />
                       Age Group
                     </span>
-                    <span class="text-xs sm:text-sm font-bold text-blue-600">8-18 Years</span>
+                    <span class="text-xs sm:text-sm font-bold text-blue-600">Children & Youth</span>
                   </div>
                 </div>
 

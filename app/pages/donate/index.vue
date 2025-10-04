@@ -415,7 +415,7 @@ const programs = {
     gradientClass: "bg-gradient-to-br from-rose-700 to-rose-800",
     icon: "i-lucide-music",
     description: "Every child has a melody waiting to be discovered. At B&S Music School, we transform raw talent into polished artistry, giving underprivileged children access to professional music education, instruments, and performance opportunities.",
-    impact: "150+ children trained • 12 performances annually • 8 scholarships awarded",
+    impact: "150+ children trained • annual performances • 8 scholarships awarded",
     needs: [
       { item: "Monthly tuition for one child", amount: "₦15,000", icon: "🎵" },
       { item: "Complete instrument set", amount: "₦45,000", icon: "🎸" },
@@ -439,7 +439,7 @@ const programs = {
     gradientClass: "bg-gradient-to-br from-blue-600 to-blue-800",
     icon: "i-lucide-graduation-cap",
     description: "Education is the most powerful weapon to change the world. Through KACIS, we ensure that financial constraints never stop a bright mind from reaching its full potential. We sponsor school fees, provide learning materials, and offer mentorship.",
-    impact: "200+ children sponsored • 95% completion rate • 50+ university scholarships",
+    impact: "200+ children sponsored • 95% completion rate",
     needs: [
       { item: "Annual school fees", amount: "₦35,000", icon: "🎓" },
       { item: "School uniform & supplies", amount: "₦12,000", icon: "👕" },
