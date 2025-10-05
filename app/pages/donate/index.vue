@@ -29,7 +29,7 @@
           />
           <div class="relative justify-center flex flex-col bg-gradient-to-r from-black to-transparent bg-opacity-20 p-4 sm:p-6 lg:p-8 rounded-lg text-white h-full z-10">
             <h2 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-              300+ Children Need Your Help Today
+              3000+ Children Need Your Help Today
             </h2>
             <p class="mb-4 sm:mb-6 lg:mb-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 text-sm sm:text-base lg:text-lg leading-relaxed">
               Join us in making a difference in the lives of children through education, sports, and music. 
@@ -352,7 +352,7 @@ Abuja, Nigeria</p>
             <div class="flex flex-wrap justify-center items-center gap-8">
               <div class="flex items-center space-x-2">
                 <Icon name="i-lucide-shield" class="w-5 h-5 text-green-600" />
-                <span class="text-sm font-medium text-gray-700">Registered NGO</span>
+                <span class="text-sm font-medium text-gray-700">Registered Non-profit</span>
               </div>
               <div class="flex items-center space-x-2">
                 <Icon name="i-lucide-eye" class="w-5 h-5 text-blue-600" />
@@ -417,13 +417,13 @@ const programs = {
     description: "Every child has a melody waiting to be discovered. At B&S Music School, we transform raw talent into polished artistry, giving underprivileged children access to professional music education, instruments, and performance opportunities.",
     impact: "150+ children trained • annual performances • 8 scholarships awarded",
     needs: [
-      { item: "Monthly tuition for one child", amount: "₦15,000", icon: "🎵" },
-      { item: "Complete instrument set", amount: "₦45,000", icon: "🎸" },
-      { item: "Music sheets & books", amount: "₦8,000", icon: "📚" },
+      { item: "Monthly tuition for one child", amount: "₦50,000", icon: "🎵" },
+      { item: "Complete instrument set", amount: "₦100,000", icon: "🎸" },
+      { item: "Music sheets & books", amount: "₦20,000", icon: "📚" },
       { item: "Recording studio session", amount: "₦25,000", icon: "🎤" }
     ],
     nonMonetary: [
-      "Musical instruments (keyboards, guitars, drums)",
+      "Musical instruments (keyboards, guitars, violin)",
       "Audio equipment and speakers",
       "Music stands and storage",
       "Venue space for performances",
@@ -501,13 +501,13 @@ const successStories = [
     impact: "🎓 Graduating with honors this year"
   },
   {
-    name: "Fatima Ibrahim",
-    age: "Age 12", 
-    program: "Safe Haven Project",
-    image: "/img/bs6.jpg",
-    story: "The Safe Haven gave me more than shelter - it gave me hope. I feel safe, loved, and ready to chase my dreams of becoming a doctor.",
-    impact: "🏠 Thriving in a loving environment"
-  }
+    name: "Fatima Yusuf",
+    age: "Age 10",
+    program: "KACIS Education",
+    image: "/img/bs3.jpg",
+    story: "I used to miss school because we couldn't afford the uniform. Now, with AMU's help, I attend every day and love learning new things.",
+    impact: "📚 Top of her class in reading"
+  },
 ]
 
 // Methods
