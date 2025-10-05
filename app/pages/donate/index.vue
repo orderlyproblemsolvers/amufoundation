@@ -504,7 +504,7 @@ const successStories = [
     name: "Fatima Yusuf",
     age: "Age 10",
     program: "KACIS Education",
-    image: "/img/bs3.jpg",
+    image: "/img/bs3.webp",
     story: "I used to miss school because we couldn't afford the uniform. Now, with AMU's help, I attend every day and love learning new things.",
     impact: "📚 Top of her class in reading"
   },
