@@ -23,7 +23,16 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       tailwindcss(),
-    ]
+    ],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['vue', 'vue-router']
+          }
+        }
+      }
+    },
   },
   runtimeConfig: {
     public: {
@@ -36,7 +45,9 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    preset: 'netlify'
+    preset: 'netlify',
+     compressPublicAssets: true,
+    minify: true
   },
   site: {
     url: 'https://amufoundation.org',
