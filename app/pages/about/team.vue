@@ -328,7 +328,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: '/img/bs9.jpeg'
+      content: '/img/bs9.webp'
     },
     {
       property: 'og:url',
@@ -348,12 +348,12 @@ useSeoMeta({
   title: 'AMU Foundation - Our Team',
   description: 'Meet the dedicated team behind AMU Foundation, committed to empowering children through education, sports, and music.',
   ogType: 'website',
-  ogImage: '/img/bs9.jpeg',
+  ogImage: '/img/bs9.webp',
   ogUrl: 'https://www.amufoundation.org/about/team',
   twitterCard: 'summary_large_image',
   twitterSite: '@amufoundation',
   twitterCreator: '@amufoundation',
-  twitterImage: '/img/bs9.jpeg',
+  twitterImage: '/img/bs9.webp',
   keywords: ['AMU Foundation', 'team', 'staff', 'leadership', 'education', 'sports', 'music', 'non-profit'],
 })
 

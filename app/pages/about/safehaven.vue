@@ -455,11 +455,11 @@ useHead({
     { property: 'og:description', content: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.' },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://www.amufoundation.org/about/safehaven' },
-    { property: 'og:image', content: 'https://www.amufoundation.org/img/bs9.jpeg' },
+    { property: 'og:image', content: 'https://www.amufoundation.org/img/bs9.webp' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation' },
     { name: 'twitter:description', content: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.' },
-    { name: 'twitter:image', content: 'https://www.amufoundation.org/img/bs9.jpeg' }
+    { name: 'twitter:image', content: 'https://www.amufoundation.org/img/bs9.webp' }
   ],
   link: [
     { rel: 'canonical', href: 'https://www.amufoundation.org/about/safehaven' }
@@ -470,12 +470,12 @@ useSeoMeta({
   title: 'Permanent Shelter for the Internally Displaced Persons | AMU Foundation',
   description: 'Learn about AMU Foundation\'s mission to provide permanent shelter and empowerment for internally displaced persons (IDPs) in Abuja, Nigeria. Discover our vision, shelter designs, selection criteria, and how you can help.',
   ogType: 'website',
-  ogImage: 'https://www.amufoundation.org/img/bs9.jpeg',
+  ogImage: 'https://www.amufoundation.org/img/bs9.webp',
   ogUrl: 'https://www.amufoundation.org/about/safehaven',
   twitterCard: 'summary_large_image',
   twitterSite: '@amufoundation',
   twitterCreator: '@amufoundation',
-  twitterImage: 'https://www.amufoundation.org/img/bs9.jpeg',
+  twitterImage: 'https://www.amufoundation.org/img/bs9.webp',
   keywords: ['AMU Foundation', 'Internally Displaced Persons', 'IDPs', 'Permanent Shelter', 'Abuja', 'Nigeria', 'Humanitarian Aid', 'Community Support', 'Empowerment Programs'],
 });
 </script>

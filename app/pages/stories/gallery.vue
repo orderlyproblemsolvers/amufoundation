@@ -187,7 +187,7 @@ const galleryItems = ref<GalleryItem[]>([
   },
   {
     id: 3,
-    src: '/img/bs4.jpg',
+    src: '/img/bs4.webp',
     alt: 'AMU Foundation Event 2',
     date: 'February 2024',
     orientation: 'portrait',
@@ -236,7 +236,7 @@ const galleryItems = ref<GalleryItem[]>([
   },
   {
     id: 9,
-    src: '/img/bs9.jpeg',
+    src: '/img/bs9.webp',
     alt: 'AMU Foundation Event 9',
     date: 'September 2023',
     orientation: 'portrait',

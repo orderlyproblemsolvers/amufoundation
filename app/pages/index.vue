@@ -31,7 +31,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: '/img/bs9.jpeg'
+      content: '/img/bs9.webp'
     },
     {
       property: 'og:url',
@@ -51,12 +51,12 @@ useSeoMeta({
   title: 'AMU Foundation - Empowering Children Through Education, Sports, and Music',
   description: 'AMU Foundation is dedicated to creating equal opportunities for children through education, sports, and music. Join us in making a difference.',
   ogType: 'website',
-  ogImage: '/img/bs9.jpeg',
+  ogImage: '/img/bs9.webp',
   ogUrl: 'https://www.amufoundation.org',
   twitterCard: 'summary_large_image',
   twitterSite: '@amufoundation',
   twitterCreator: '@amufoundation',
-  twitterImage: '/img/bs9.jpeg',
+  twitterImage: '/img/bs9.webp',
   keywords: ['AMU Foundation', 'education', 'sports', 'music', 'children empowerment', 'non-profit', 'charity', 'skill development', 'advocacy'],
 })
 

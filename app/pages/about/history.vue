@@ -286,12 +286,12 @@ useSeoMeta({
   title: 'Our History - A Million of Us Foundation',
   description: 'Discover the inspiring history of A Million of Us Foundation, from our founding in 2018 to our impactful programs empowering children and youth across Nigeria and beyond.',
   ogType: 'website',
-  ogImage: '/img/bs9.jpeg',
+  ogImage: '/img/bs9.webp',
   ogUrl: 'https://www.amufoundation.org/about/history',
   twitterCard: 'summary_large_image',
   twitterSite: '@amufoundation',
   twitterCreator: '@amufoundation',
-  twitterImage: '/img/bs9.jpeg',
+  twitterImage: '/img/bs9.webp',
   keywords: ['A Million of Us Foundation', 'AMU Foundation', 'history', 'about us', 'mission', 'vision', 'programs', 'children empowerment', 'youth development', 'Nigeria NGO'],
 })
 

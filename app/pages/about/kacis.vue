@@ -600,7 +600,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
   twitterSite: "@amufoundation",
   twitterCreator: "@amufoundation",
-  twitterImage: "/img/bs4.jpg",
+  twitterImage: "/img/bs4.webp",
 
 });
 useHead({
@@ -623,13 +623,13 @@ useHead({
       content:
         "Join the KACIS program to help keep children in school. Download scholarship application forms and learn about our educational support initiatives.",
     },
-    { property: "og:image", content: "/img/bs4.jpg" },
+    { property: "og:image", content: "/img/bs4.webp" },
     { property: "og:url", content: "https://www.amufoundation.org/about/kacis" },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: "@amufoundation" },
     { name: "twitter:creator", content: "@amufoundation" },
-    { name: "twitter:image", content: "/img/bs4.jpg" },
+    { name: "twitter:image", content: "/img/bs4.webp" },
   ],
   link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
 });

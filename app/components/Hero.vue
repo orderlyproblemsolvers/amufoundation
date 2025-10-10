@@ -13,7 +13,7 @@
     >
       <source src="/vid/intro.mp4" type="video/mp4">
       <!-- Fallback image -->
-      <img src="/img/bs9.jpeg" alt="Children in need of education support" class="w-full h-full object-cover">
+      <img src="/img/bs9.webp" alt="Children in need of education support" class="w-full h-full object-cover">
     </video>
 
     <!-- Dark Overlay -->
@@ -87,7 +87,7 @@
       </div>
       <div class="shadow-[0px_-14px_62px_-31px_#c70036] flex flex-col text-left banner w-[95%] sm:w-[90%] lg:w-[85%] xl:w-[80%] rounded-lg h-64 sm:h-72 md:h-80 lg:h-84 place-self-center">
         <NuxtImg
-          src="/img/bs9.jpeg"
+          src="/img/bs9.webp"
           alt="Support Our Cause Banner"
           class="absolute inset-0 w-full h-full object-cover rounded-lg"
           loading="eager"
@@ -143,7 +143,7 @@
         <div class="flex-1 w-full">
           <div class="w-full h-64 sm:h-80 lg:h-96 rounded-xl overflow-hidden">
             <NuxtImg
-              src="/img/bs4.jpg"
+              src="/img/bs4.webp"
               alt="AMU Foundation - Creating opportunities for children"
               class="w-full h-full object-cover"
               loading="lazy"
@@ -454,7 +454,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: '/img/bs9.jpeg'
+      content: '/img/bs9.webp'
     },
     {
       property: 'og:url',
@@ -474,19 +474,19 @@ useSeoMeta({
   title: 'AMU Foundation - Empowering Children Through Education, Sports, and Music',
   description: 'AMU Foundation is dedicated to creating equal opportunities for children through education, sports, and music. Join us in making a difference.',
   ogType: 'website',
-  ogImage: '/img/bs9.jpeg',
+  ogImage: '/img/bs9.webp',
   ogUrl: 'https://www.amufoundation.org',
   twitterCard: 'summary_large_image',
   twitterSite: '@amufoundation',
   twitterCreator: '@amufoundation',
-  twitterImage: '/img/bs9.jpeg',
+  twitterImage: '/img/bs9.webp',
   keywords: ['AMU Foundation', 'education', 'sports', 'music', 'children empowerment', 'non-profit', 'charity', 'skill development', 'advocacy'],
 })
 
 // Gallery images data (keeping only the existing assets)
 const galleryImages = ref([
   {
-    src: '/img/bs4.jpg',
+    src: '/img/bs4.webp',
     alt: 'AMU Foundation community event - children participating in educational activities'
   },
   {
@@ -506,7 +506,7 @@ const galleryImages = ref([
     alt: 'Community gathering and networking event'
   },
   {
-    src: '/img/bs9.jpeg',
+    src: '/img/bs9.webp',
     alt: 'AMU Foundation impact story and success celebration'
   }
 ])

@@ -400,7 +400,7 @@ useSeoMeta({
   description: 'Support AMU Foundation\'s three pillars of impact: B&S Music School, KACIS Education Support, and Safe Haven Project. Transform lives across Nigeria through secure donations.',
   ogTitle: 'Donate - A Million Of Us Foundation',
   ogDescription: 'Transform lives through education, music, and shelter. Support AMU Foundation\'s mission across Nigeria.',
-  ogImage: '/img/bs9.jpeg',
+  ogImage: '/img/bs9.webp',
   canonical: 'https://www.amufoundation.org/donate',
 })
 
@@ -488,7 +488,7 @@ const successStories = [
     name: "Amina Abdullahi",
     age: "Age 14",
     program: "B&S Music School",
-    image: "/img/bs4.jpg",
+    image: "/img/bs4.webp",
     story: "I never dreamed I could play piano until AMU believed in me. Now I perform at events and teach younger children. Music opened doors I never knew existed.",
     impact: "🎵 Now teaching 5 other children"
   },

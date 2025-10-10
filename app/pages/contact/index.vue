@@ -401,12 +401,12 @@ useSeoMeta({
   description:
     "Get in touch with AMU Foundation. Contact us for inquiries about our programs, volunteer opportunities, partnerships, and more. We're here to help create opportunities for children.",
   ogType: "website",
-  ogImage: "/img/bs9.jpeg",
+  ogImage: "/img/bs9.webp",
   ogUrl: "https://www.amufoundation.org/contact",
   twitterCard: "summary_large_image",
   twitterSite: "@amufoundation",
   twitterCreator: "@amufoundation",
-  twitterImage: "/img/bs9.jpeg",
+  twitterImage: "/img/bs9.webp",
   keywords: [
     "AMU Foundation",
     "contact",
