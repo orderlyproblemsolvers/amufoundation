@@ -66,5 +66,13 @@ export default defineNuxtConfig({
   
   linkChecker: {
     enabled: true
-  }
+  },
+  sitemap: {
+    sources: [
+      '/api/__sitemap__/urls'
+    ],
+    exclude: [
+      '/admin/**'
+    ]
+  },
 })
