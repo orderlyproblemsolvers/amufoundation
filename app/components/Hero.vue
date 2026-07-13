@@ -84,7 +84,7 @@
         <div class="flex-1 w-full">
           <div class="relative w-full h-72 sm:h-96 lg:h-[450px] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
             <NuxtImg
-              src="/events/grids.png"
+              src="/events/grids.webp"
               alt="AMU Foundation - Who We Are"
               class="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
