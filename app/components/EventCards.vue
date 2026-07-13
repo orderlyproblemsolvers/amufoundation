@@ -1,8 +1,9 @@
 <template>
-  <section class="py-8 md:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="py-12 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
       <!-- Section Header -->
-      <div class="text-center mb-8 md:mb-12">
+      <div class="text-center mb-10 md:mb-14">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
           Our <span class="text-rose-700">Programs</span>
         </h2>
@@ -11,143 +12,95 @@
         </p>
       </div>
 
-      <!-- Events Grid/Scroll Container -->
-      <div class="block md:hidden">
-        <!-- Mobile: Horizontal Scroll -->
-        <div class="overflow-x-auto pb-6 hide-scrollbar">
-          <div class="flex gap-4 w-max px-1">
-            
-            <!-- B&S Music Event - Mobile -->
-            <div class="w-96 bg-gradient-to-r from-rose-400 to-rose-700 rounded-xl shadow-lg overflow-hidden flex-shrink-0">
-              <div class="p-6">
-                <h3 class="text-lg font-bold mb-4 text-center text-white">
-                  B&S Music School
-                </h3>
-                
-                <div class="space-y-4">
-                  <!-- Image -->
-                  <div class="w-16 h-16 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 overflow-hidden mx-auto">
-                    <img src="/img/music.jpeg" alt="B&S Music" class="w-full h-full object-cover">
-                  </div>
+      <!-- Unified Responsive Grid: editorial full-bleed photo cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
 
-                  <!-- Content -->
-                  <div class="text-center space-y-4">
-                    <p class="text-white/90 text-sm leading-relaxed">
-                      Experience the power of music in building communities and fostering creativity through our music program.
-                    </p>
-                    
-                    <div class="space-y-2">
-                      <button @click="navigateTo('/stories/events')" class="w-full bg-white text-rose-600 px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-rose-50 transition-colors duration-200">
-                        Learn More
-                      </button>
-                      <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-white hover:text-rose-600 transition-colors duration-200">
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <!-- B&S Music School -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[4/5] sm:aspect-[3/4]">
+          <!-- Full-bleed photo -->
+          <img
+            src="/img/music.webp"
+            alt="B&S Music School"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
 
-            <!-- AMU Sports Camp Event - Mobile -->
-            <div class="w-96 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-lg overflow-hidden flex-shrink-0">
-              <div class="p-6">
-                <h3 class="text-lg font-bold mb-4 text-center text-white">
-                  AMU Sports Camp
-                </h3>
-                
-                <div class="space-y-4">
-                  <!-- Image -->
-                  <div class="w-16 h-16 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 overflow-hidden mx-auto">
-                    <img src="/img/sports.jpeg" alt="AMU Sports Camp" class="w-full h-full object-cover">
-                  </div>
+          <!-- Gradient overlay for text legibility -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
-                  <!-- Content -->
-                  <div class="text-center space-y-4">
-                    <p class="text-white/90 text-sm leading-relaxed">
-                      Empower young athletes through comprehensive sports training and character development programs.
-                    </p>
-                    
-                    <div class="space-y-2">
-                      <button @click="navigateTo('/stories/events')" class="w-full bg-white text-blue-600 px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-blue-50 transition-colors duration-200">
-                        Learn More
-                      </button>
-                      <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
-                        Join Camp
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <!-- Tag chip -->
+          <div class="absolute top-4 left-4 sm:top-5 sm:left-5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold tracking-wide">
+              Music Program
+            </span>
           </div>
-        </div>
-      </div>
 
-      <!-- Desktop/Tablet: Grid Layout (2 columns centered) -->
-      <div class="hidden md:grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        
-        <!-- B&S Music Event - Desktop -->
-        <div class="bg-gradient-to-r from-rose-400 to-rose-700 rounded-xl shadow-lg overflow-hidden transform hover:scale-101 transition-all duration-300">
-          <div class="p-8 text-white">
-            <h3 class="text-xl font-bold mb-4 text-center">
+          <!-- Content -->
+          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7 text-white">
+            <h3 class="text-xl sm:text-2xl font-bold mb-2">
               B&S Music School
             </h3>
-            
-            <div class="flex gap-4 items-start">
-              <!-- Image -->
-              <div class="w-20 h-20 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 overflow-hidden flex-shrink-0">
-                <img src="/img/music.jpeg" alt="B&S Music" class="w-full h-full object-cover">
-              </div>
-
-              <!-- Content -->
-              <div class="flex-1 space-y-3">
-                <p class="text-white/90 text-sm leading-relaxed">
-                  Experience the power of music in building communities and fostering creativity through our music program.
-                </p>
-                
-                <div class="space-y-2">
-                  <button @click="navigateTo('/stories/events')" class="w-full bg-white text-rose-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-rose-50 transition-colors duration-200">
-                    Learn More
-                  </button>
-                  <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-rose-600 transition-colors duration-200">
-                    Register Now
-                  </button>
-                </div>
-              </div>
+            <p class="text-white/90 text-sm sm:text-base leading-relaxed mb-5 line-clamp-3">
+              Experience the power of music in building communities and fostering creativity through our music program.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <NuxtLink
+                to="/stories/programs"
+                class="text-center flex-1 bg-white text-rose-600 px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-rose-50 transition-colors duration-200"
+              >
+                Learn More
+            </NuxtLink>
+              <NuxtLink
+                to="/register/music-school"
+                class="text-center flex-1 border bg-rose-600 border-rose-600/70 text-white px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-rose-700 hover:white transition-colors duration-200"
+              >
+                Register Now
+          </NuxtLink>
             </div>
           </div>
         </div>
 
-        <!-- AMU Sports Camp Event - Desktop -->
-        <div class="bg-gradient-to-r from-blue-500 to-[#1E67A8] rounded-xl shadow-lg overflow-hidden transform hover:scale-101 transition-all duration-300">
-          <div class="p-8 text-white">
-            <h3 class="text-xl font-bold mb-4 text-center">
-              AMU Sports Camp
-            </h3>
-            
-            <div class="flex gap-4 items-start">
-              <!-- Image -->
-              <div class="w-20 h-20 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 overflow-hidden flex-shrink-0">
-                <img src="/img/sports.jpeg" alt="AMU Sports Camp" class="w-full h-full object-cover">
-              </div>
+        <!-- AMU Sports Camp -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[4/5] sm:aspect-[3/4]">
+          <!-- Full-bleed photo -->
+          <img
+            src="/img/sports.webp"
+            alt="B&S Sports Academy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
 
-              <!-- Content -->
-              <div class="flex-1 space-y-3">
-                <p class="text-white/90 text-sm leading-relaxed">
-                  Empower young athletes through comprehensive sports training and character development programs.
-                </p>
-                
-                <div class="space-y-2">
-                  <button @click="navigateTo('/stories/events')" class="w-full bg-white text-blue-600 px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-50 transition-colors duration-200">
-                    Learn More
-                  </button>
-                  <button @click="navigateTo('/stories/events#registrations')" class="w-full border border-white text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
-                    Join Camp
-                  </button>
-                </div>
-              </div>
+          <!-- Gradient overlay for text legibility -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <!-- Tag chip -->
+          <div class="absolute top-4 left-4 sm:top-5 sm:left-5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold tracking-wide">
+              Sports Program
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7 text-white">
+            <h3 class="text-xl sm:text-2xl font-bold mb-2">
+              B&S Sports Academy
+            </h3>
+            <p class="text-white/90 text-sm sm:text-base leading-relaxed mb-5 line-clamp-3">
+              Empower young athletes through comprehensive sports training and character development programs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <NuxtLink
+                to="/stories/programs"
+                class="text-center flex-1 bg-white text-blue-600 px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-blue-50 transition-colors duration-200"
+              >
+                Learn More
+            </NuxtLink>
+              <NuxtLink
+                to="/register/sports-academy"
+                class="text-center flex-1 border border-blue-600/70 bg-blue-600 text-white px-4 py-2.5 rounded-md text-sm font-semibold hover:bg-blue-700 hover:text-white transition-colors duration-200"
+              >
+                Join Camp
+            </NuxtLink>
             </div>
           </div>
         </div>
@@ -167,27 +120,11 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Custom hover effects */
-.hover\:scale-105:hover {
-  transform: scale(1.01);
+/* Line clamp fallback for broader browser support */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-
-/* Smooth transitions */
-button {
-  transition: all 0.2s ease;
-}
-
-/* Hide scrollbar for mobile horizontal scroll */
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-.hide-scrollbar::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
-}
-
-/* Ensure proper touch scrolling on mobile */
-.overflow-x-auto {
-  -webkit-overflow-scrolling: touch;
-} 
 </style>

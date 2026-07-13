@@ -49,7 +49,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
         <!-- Events Management Panel -->
         <NuxtLink 
-          to="/admin/events"
+          to="/admin/programs"
           class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 border border-gray-100 group cursor-pointer transform hover:scale-105 active:scale-95"
         >
           <div class="flex items-start sm:items-center mb-3 sm:mb-4">
@@ -58,21 +58,21 @@
             </div>
             <div class="ml-3 sm:ml-4 min-w-0">
               <h3 class="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 group-hover:text-rose-700 transition-colors duration-200">
-                Manage Events
+                Manage Programs
               </h3>
             </div>
           </div>
           <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">
-            Create, edit, and manage foundation events, workshops, and activities.
+            Manage foundation events, workshops, and activities.
           </p>
           <div class="flex items-center text-rose-700 font-medium text-sm sm:text-base">
-            <span>Access Events Panel</span>
+            <span>Access Programs Panel</span>
             <Icon name="i-lucide-arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </div>
         </NuxtLink>
 
         <!-- Gallery Management Panel -->
-        <NuxtLink 
+        <!-- <NuxtLink 
           to="/admin/gallery"
           class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-4 sm:p-6 border border-gray-100 group cursor-pointer transform hover:scale-105 active:scale-95"
         >
@@ -93,7 +93,7 @@
             <span>Access Gallery Panel</span>
             <Icon name="i-lucide-arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </div>
-        </NuxtLink>
+        </NuxtLink> -->
 
         <!-- Inquiries Management Panel -->
         <NuxtLink 
@@ -120,24 +120,7 @@
         </NuxtLink>
       </div>
 
-      <!-- Quick Stats Section -->
-      <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 border border-gray-100">
-        <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Quick Overview</h3>
-        <div class="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-4">
-          <div class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-rose-700">12</div>
-            <div class="text-xs sm:text-sm text-gray-600 mt-1">Active Events</div>
-          </div>
-          <div class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-rose-700">48</div>
-            <div class="text-xs sm:text-sm text-gray-600 mt-1">Gallery Items</div>
-          </div>
-          <div class="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-rose-700">5</div>
-            <div class="text-xs sm:text-sm text-gray-600 mt-1">New Inquiries</div>
-          </div>
-        </div>
-      </div>
+  
 
       <!-- Mobile-specific bottom spacing -->
       <div class="h-4 sm:h-0"></div>

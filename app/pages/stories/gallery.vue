@@ -170,14 +170,54 @@ interface GalleryItem {
 const galleryItems = ref<GalleryItem[]>([
   {
     id: 1,
-    src: '/img/bs1.webp',
+    src: '/events/ev2.jpg',
     alt: 'AMU Foundation Event 1',
+    date: 'Restored Destiny Orphanage',
+    orientation: 'portrait',
+    type: 'image'
+  },
+  {
+    id: 2,
+    src: '/events/ev1.jpg',
+    alt: 'AMU Foundation Event 2',
+    date: 'Restored Destiny Orphanage',
+    orientation: 'portrait',
+    type: 'image'
+  },
+  {
+    id: 3,
+    src: '/events/vd1.mp4',
+    alt: 'AMU Foundation Event 3',
+    date: 'Restored Destiny Orphanage',
+    orientation: 'landscape',
+    type: 'video'
+  },
+  {
+    id: 4,
+    src: '/events/vd4.mp4',
+    alt: 'AMU Foundation Event 4',
+    date: '2023',
+    orientation: 'portrait',
+    type: 'video'
+  },
+  {
+    id: 5,
+    src: '/events/ev4.jpg',
+    alt: 'AMU Foundation Event 5',
+    date: 'Childrens day',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 6,
+    src: '/img/bs1.webp',
+    alt: 'AMU Foundation Event 6',
     date: 'March 2024',
     orientation: 'landscape',
     type: 'image'
   },
   {
-    id: 2,
+    id: 7,
     src: '/vid/vid1.mp4',
     alt: 'AMU Foundation Video 1',
     date: 'December 2018',
@@ -186,15 +226,15 @@ const galleryItems = ref<GalleryItem[]>([
     // thumbnail: '/img/bs1.webp' // You can create actual video thumbnails
   },
   {
-    id: 3,
+    id: 8,
     src: '/img/bs4.webp',
-    alt: 'AMU Foundation Event 2',
+    alt: 'AMU Foundation Event 7',
     date: 'February 2024',
     orientation: 'portrait',
     type: 'image'
   },
   {
-    id: 4,
+    id: 9,
     src: '/vid/vid2.mp4',
     alt: 'AMU Foundation Video 2',
     date: 'December 2018',
@@ -203,129 +243,129 @@ const galleryItems = ref<GalleryItem[]>([
     // thumbnail: '/img/bs3.webp' // You can create actual video thumbnails
   },
   {
-    id: 5,
+    id: 10,
     src: '/img/bs3.webp',
-    alt: 'AMU Foundation Event 3',
+    alt: 'AMU Foundation Event 8',
     date: 'January 2024',
     orientation: 'landscape',
     type: 'image'
   },
   {
-    id: 6,
+    id: 11,
     src: '/img/bs2.webp',
-    alt: 'AMU Foundation Event 4',
+    alt: 'AMU Foundation Event 9',
     date: 'December 2023',
     orientation: 'portrait',
     type: 'image'
   },
   {
-    id: 7,
+    id: 12,
     src: '/img/bs5.jpg',
-    alt: 'AMU Foundation Event 5',
+    alt: 'AMU Foundation Event 10',
     date: 'November 2023',
     orientation: 'landscape',
     type: 'image'
   },
   {
-    id: 8,
+    id: 13,
     src: '/img/bs6.jpg',
-    alt: 'AMU Foundation Event 8',
+    alt: 'AMU Foundation Event 11',
     date: 'October 2023',
     orientation: 'portrait',
     type: 'image'
   },
   {
-    id: 9,
+    id: 14,
     src: '/img/bs9.webp',
-    alt: 'AMU Foundation Event 9',
+    alt: 'AMU Foundation Event 12',
     date: 'September 2023',
     orientation: 'portrait',
     type: 'image'
   },
   {
-    id: 10,
+    id: 15,
     src: '/img/bs7.jpeg',
-    alt: 'AMU Foundation Event 10',
+    alt: 'AMU Foundation Event 13',
     date: 'August 2023',
     orientation: 'portrait',
     type: 'image'
   },
   {
-    id: 11,
+    id: 16,
     src: '/img/bs8.jpeg',
-    alt: 'AMU Foundation Event 11',
-    date: 'July 2023',
-    orientation: 'portrait',
-    type: 'image'
-  },
-  {
-    id: 12,
-    src: '/img/bs10.jpg',
-    alt: 'AMU Foundation Event 12',
-    date: 'December 2018',
-    orientation: 'landscape',
-    type: 'image'
-  },
-  {
-    id: 13,
-    src: '/img/bs11.jpg',
-    alt: 'AMU Foundation Event 13',
-    date: 'December 2018',
-    orientation: 'landscape',
-    type: 'image'
-  },
-  {
-    id: 14,
-    src: '/img/bs12.jpg',
     alt: 'AMU Foundation Event 14',
     date: 'July 2023',
-    orientation: 'landscape',
-    type: 'image'
-  },
-  {
-    id: 15,
-    src: '/img/bs13.jpg',
-    alt: 'AMU Foundation Event 15',
-    date: 'July 2023',
-    orientation: 'landscape',
-    type: 'image'
-  },
-  {
-    id: 16,
-    src: '/img/bs14.jpg',
-    alt: 'AMU Foundation Event 16',
-    date: 'July 2023',
-    orientation: 'landscape',
+    orientation: 'portrait',
     type: 'image'
   },
   {
     id: 17,
-    src: '/img/bs15.jpg',
-    alt: 'AMU Foundation Event 17',
-    date: 'July 2023',
-    orientation: 'portrait',
+    src: '/img/bs10.jpg',
+    alt: 'AMU Foundation Event 15',
+    date: 'December 2018',
+    orientation: 'landscape',
     type: 'image'
   },
   {
     id: 18,
-    src: '/img/bs16.jpg',
-    alt: 'AMU Foundation Event 18',
-    date: 'June 2019',
+    src: '/img/bs11.jpg',
+    alt: 'AMU Foundation Event 16',
+    date: 'December 2018',
     orientation: 'landscape',
     type: 'image'
   },
   {
     id: 19,
-    src: '/img/bs17.jpg',
-    alt: 'AMU Foundation Event 19',
-    date: 'June 2019',
+    src: '/img/bs12.jpg',
+    alt: 'AMU Foundation Event 17',
+    date: 'July 2023',
     orientation: 'landscape',
     type: 'image'
   },
   {
     id: 20,
-    src: '/img/bs18.jpg',
+    src: '/img/bs13.jpg',
+    alt: 'AMU Foundation Event 18',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 21,
+    src: '/img/bs14.jpg',
+    alt: 'AMU Foundation Event 19',
+    date: 'July 2023',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 22,
+    src: '/img/bs15.jpg',
     alt: 'AMU Foundation Event 20',
+    date: 'July 2023',
+    orientation: 'portrait',
+    type: 'image'
+  },
+  {
+    id: 23,
+    src: '/img/bs16.jpg',
+    alt: 'AMU Foundation Event 21',
+    date: 'June 2019',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 24,
+    src: '/img/bs17.jpg',
+    alt: 'AMU Foundation Event 22',
+    date: 'June 2019',
+    orientation: 'landscape',
+    type: 'image'
+  },
+  {
+    id: 25,
+    src: '/img/bs18.jpg',
+    alt: 'AMU Foundation Event 23',
     date: 'June 2019',
     orientation: 'landscape',
     type: 'image'

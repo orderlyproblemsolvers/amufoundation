@@ -29,7 +29,7 @@
           />
           <div class="relative justify-center flex flex-col bg-gradient-to-r from-black to-transparent bg-opacity-20 p-4 sm:p-6 lg:p-8 rounded-lg text-white h-full z-10">
             <h2 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-              3000+ Children Need Your Help Today
+              Millions of children need your help today
             </h2>
             <p class="mb-4 sm:mb-6 lg:mb-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 text-sm sm:text-base lg:text-lg leading-relaxed">
               Join us in making a difference in the lives of children through education, sports, and music. 
@@ -283,7 +283,7 @@
           <div v-for="story in successStories" :key="story.name" 
                class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100">
             <div class="flex items-center mb-6">
-              <div class="w-16 h-16 bg-gray-200 rounded-full mr-4 overflow-hidden">
+              <div v-if="story.image" class="w-16 h-16 bg-gray-200 rounded-full mr-4 overflow-hidden">
                 <NuxtImg :src="story.image" :alt="story.name" class="w-full h-full object-cover" />
               </div>
               <div>
@@ -488,7 +488,7 @@ const successStories = [
     name: "Amina Abdullahi",
     age: "Age 14",
     program: "B&S Music School",
-    image: "/img/bs4.webp",
+    image: "/img/bs5.jpg",
     story: "I never dreamed I could play piano until AMU believed in me. Now I perform at events and teach younger children. Music opened doors I never knew existed.",
     impact: "🎵 Now teaching 5 other children"
   },
@@ -496,7 +496,7 @@ const successStories = [
     name: "David Okafor", 
     age: "Age 16",
     program: "KACIS Education",
-    image: "/img/bs5.jpg",
+    image: "/img/bs4.webp",
     story: "When my parents couldn't afford my school fees, I thought my dreams were over. KACIS gave me a second chance. I'm now preparing for university!",
     impact: "🎓 Graduating with honors this year"
   },
@@ -504,7 +504,7 @@ const successStories = [
     name: "Fatima Yusuf",
     age: "Age 10",
     program: "KACIS Education",
-    image: "/img/bs3.webp",
+    image: null,
     story: "I used to miss school because we couldn't afford the uniform. Now, with AMU's help, I attend every day and love learning new things.",
     impact: "📚 Top of her class in reading"
   },

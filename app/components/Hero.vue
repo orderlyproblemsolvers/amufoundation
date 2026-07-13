@@ -1,190 +1,223 @@
 <template>
-  <!-- Hero Video Section with Statistics -->
-  <section class="relative h-screen overflow-hidden">
-    <!-- Background Video -->
-    <video
-      ref="heroVideo"
-      class="absolute inset-0 w-full h-full object-cover"
-      autoplay
-      muted
-      loop
-      playsinline
 
-    >
-      <source src="/vid/intro.mp4" type="video/mp4">
-      <!-- Fallback image -->
-      <img src="/img/bs9.webp" alt="Children in need of education support" class="w-full h-full object-cover">
-    </video>
 
-    <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black/90"></div>
+<section class="relative min-h-screen lg:min-h-[85dvh] lg:h-[85dvh] w-full flex items-center overflow-hidden bg-rose-800 pb-20 lg:py-0">
 
-    <!-- Statistics Content -->
-    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
-      <div class="text-center text-white max-w-4xl mx-auto">
-        <!-- Main Statistic Display -->
-        <div class="mb-8">
-          <div 
+  <img
+    src="/img/amu-track-light.svg"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    class="pointer-events-none select-none absolute -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 md:-right-16 lg:-right-20 xl:-right-24
+           w-[95%] sm:w-[95%] md:w-[70%] lg:w-[65%] xl:w-[65%] max-w-4xl
+           opacity-[0.20] sm:opacity-[0.20] lg:opacity-[0.25]
+           z-0"
+  />
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 mt-8 lg:mt-0">
+    <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+
+      <!-- Text Content - Left (Bottom on mobile) -->
+      <div class="w-full lg:w-1/2 text-left text-white flex flex-col justify-center">
+        <div class="min-h-[280px] sm:min-h-[220px] lg:min-h-[260px] flex flex-col justify-center mb-2">
+          <div
             class="statistic-container"
             :class="{ 'fade-in': isVisible }"
           >
-            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold mb-4 text-shadow-lg">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 text-shadow-sm leading-tight">
               {{ currentStatistic.number }}
             </h1>
-            <p class="text-xl sm:text-2xl lg:text-3xl font-light mb-6 text-shadow">
+            <p class="text-xl sm:text-2xl lg:text-3xl font-light mb-5 text-shadow-sm">
               {{ currentStatistic.text }}
             </p>
-            <div class="w-24 h-1 bg-rose-700 mx-auto mb-6"></div>
-            <p class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed text-shadow">
+            <div class="w-20 h-1 bg-white mb-5 rounded-full"></div>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-100 max-w-lg leading-relaxed text-shadow-sm">
               {{ currentStatistic.description }}
             </p>
           </div>
         </div>
 
-        <!-- Call to Action -->
-        <div class="mt-12 opacity-90">
-          <p class="text-lg mb-6 text-shadow">
-            Together, we can change these numbers
+        <div class="mt-4 opacity-90">
+          <p class="text-base lg:text-lg mb-5 text-shadow font-medium">
+            Together, we can change these numbers.
           </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-           <ButtonPrimary title="Make a Difference" path="/donate"/>
-            <ButtonSecondary title="Learn More" path="/about/kacis" />
+          <div class="flex flex-col sm:flex-row gap-4">
+            <ButtonSecondary title="Sponsor a child" path="/donate" icon="i-lucide-heart"/>
+            <ButtonOutline title="Learn More" path="/about/kacis" />
           </div>
         </div>
+      </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+      <!-- Video - Right (Top on mobile) -->
+      <div class="w-full lg:w-1/2 flex justify-center lg:justify-end z-10">
+        <div class="relative w-full max-w-md lg:max-w-xl aspect-video rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/10">
+          <video
+            ref="heroVideo"
+            class="absolute inset-0 w-full h-full object-cover"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="/vid/intro.mp4" type="video/mp4">
+            <img src="/img/bs9.webp" alt="Children in need of education support" class="w-full h-full object-cover">
+          </video>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
 
-  <section class="relative bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-      <div class="text-center py-12">
-        <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
-          We Believe <span class="text-rose-700 leckerli">Talent</span> Should <br />
-          Open Doors.
-        </h1>
-        <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-          AMU is a Foundation committed to the professional development of the
-          child. It is a foundation, and not-for-profit, non-sectarian,
-          non-partisan, ethically and morally bound in principles,
-          non-religious, and working to achieve the overall development of
-          children
-        </p>
-        <div class="mt-8 flex justify-center space-x-4">
-          <ButtonPrimary
-            path="/stories/events"
-            title="Register"
-            icon="i-lucide-arrow-right"
-          />
-          <ButtonSecondary path="/donate" title="Donate" icon="i-lucide-gift" />
-        </div>
-      </div>
-      <div class="shadow-[0px_-14px_62px_-31px_#c70036] flex flex-col text-left banner w-[95%] sm:w-[90%] lg:w-[85%] xl:w-[80%] rounded-lg h-64 sm:h-72 md:h-80 lg:h-84 place-self-center">
-        <NuxtImg
-          src="/img/bs9.webp"
-          alt="Support Our Cause Banner"
-          class="absolute inset-0 w-full h-full object-cover rounded-lg"
-          loading="eager"
-          sizes="95vw sm:90vw lg:85vw xl:80vw"
-          quality="85"
-        />
-        <div class="relative justify-center flex flex-col bg-gradient-to-r from-black to-transparent bg-opacity-20 p-4 sm:p-6 lg:p-8 rounded-lg text-white h-full z-10">
-          <h2 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-            Support Our Cause
-          </h2>
-          <p class="mb-4 sm:mb-6 lg:mb-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Join us in making a difference in the lives of children through
-            education, sports, and music. Your support can help unlock their
-            potential and create a brighter future.
-          </p>
-          <div class="w-fit">
-            <ButtonGlass
-              path="/donate"
-              title="Donate Now"
-              icon="i-lucide-heart"
+  <div class="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+    <svg class="w-6 h-6 lg:w-8 lg:h-8 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- SECTION 1: Who Are We? -->
+  <section class="relative bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        
+        <!-- Image Container - Left Side -->
+        <div class="flex-1 w-full">
+          <div class="relative w-full h-72 sm:h-96 lg:h-[450px] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+            <img
+              src="/events/grids.png"
+              alt="AMU Foundation - Who We Are"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality="85"
             />
           </div>
         </div>
+
+        <!-- Text Content - Right Side -->
+        <div class="flex-1 text-left">
+          <div class="flex flex-col justify-between gap-6">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl leading-tight">
+              Who <span class="text-rose-700">We Are</span>
+            </h2>
+            <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+              <p>
+                AMU is a not-for-profit, non-sectarian foundation committed to the professional and holistic development of the child.
+              </p>
+              <p>
+                We are ethically and morally bound in our principles to create an enabling environment where children can develop and showcase their talents through education, sports, and music.
+              </p>
+            </div>
+            
+            <div class="mt-4 flex flex-col sm:flex-row gap-4">
+              <ButtonPrimary
+                path="/about/vision-mission"
+                title="Learn More"
+                icon="i-lucide-info"
+              />
+              <ButtonSecondary 
+                path="/stories/events" 
+                title="View Events" 
+                icon="i-lucide-calendar" 
+              />
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-  
-  <section class="relative bg-gray-50 py-16">
-    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12 py-12">
-      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+
+  <!-- SECTION 2: How You Can Help (KACIS) -->
+  <section class="relative bg-blue-500 py-16 lg:py-24 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        
         <!-- Text Content - Left Side -->
         <div class="flex-1 text-left">
-          <div class="flex flex-col justify-between gap-5">
-            <h2 class="text-xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
-            More Than a Foundation - <span class="text-rose-700">A Movement</span>
-          </h2>
-          <p class="mt-6 text-lg text-gray-600">
-            Born from B&S Education Services, AMU is dedicated to creating equal
-            opportunities for children through education, sports, and music. We
-            believe talent should open doors — not privilege. <br /><br />
-            Our Mission is to create an enabling environment for children and
-            use it to develop and showcase their talents and skills.
-          </p>
-          <ButtonPrimary
-            path="/about/vision-mission"
-            title="Learn More"
-            icon="i-lucide-arrow-right"
-          />
+          <div class="flex flex-col justify-between gap-6">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl leading-tight">
+              <span class="text-white">Keep A Child In School</span> <br/>
+              <span class="text-white">(KACIS)</span>
+            </h2>
+            <div class="space-y-4 text-lg text-gray-100">
+              <p>
+                <strong>KACIS</strong> is our flagship educational initiative designed to eliminate financial barriers that prevent children from accessing quality education. 
+              </p>
+              <p>
+                We believe that <em>talent should open doors, not privilege</em>. By providing full or partial tuition coverage, essential school materials, and dedicated mentorship, we ensure that vulnerable children not only stay in school but thrive academically and personally.
+              </p>
+              <p>
+                Every child deserves the opportunity to learn, grow, and become a future change-maker in their community.
+              </p>
+            </div>
+            
+            <div class="mt-4 flex flex-col sm:flex-row gap-4">
+              <ButtonPrimary
+                path="/donate"
+                title="Donate to KACIS"
+                icon="i-lucide-heart"
+              />
+              <ButtonSecondary
+                path="/about/kacis"
+                title="Program Details"
+                icon="i-lucide-arrow-right"
+              />
+            </div>
           </div>
         </div>
 
         <!-- Image Container - Right Side -->
         <div class="flex-1 w-full">
-          <div class="w-full h-64 sm:h-80 lg:h-96 rounded-xl overflow-hidden">
-            <NuxtImg
-              src="/img/bs4.webp"
-              alt="AMU Foundation - Creating opportunities for children"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw"
-              quality="80"
+          <div class="relative w-full h-72 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+            <img
+              src="/img/kacis.webp"
+              alt="Keep A Child In School Initiative"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality="85"
             />
+            <!-- Decorative gradient to make the image pop -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-rose-900/20 to-transparent mix-blend-overlay"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="relative bg-gray-50 py-16">
-    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
-      <!-- Header Section -->
-      <div class="text-center mb-16">
-        <h2
-          class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl mb-8"
-        >
-          Our <span class="text-rose-700">Approach</span>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          The Foundation strongly believes in the true and active participation
-          of all key stakeholders particularly program beneficiaries. Fair
-          efforts are taken to ensure that stakeholders participate and
-          contribute to all the stages of the interventions. The following are
-          the key elements of AMU program Strategies and Work Approach.
-        </p>
-      </div>
+<section class="relative bg-gray-50 py-16 lg:py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
 
-      <!-- 4x4 Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Skills Acquisitions and Training -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon
-              name="i-lucide-graduation-cap"
-              class="w-8 h-8 text-rose-700"
-            />
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold tracking-widest text-rose-700 uppercase mb-3">
+        How We Work
+      </span>
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl mb-8">
+        Our <span class="text-rose-700">Approach</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        The Foundation strongly believes in the true and active participation
+        of all key stakeholders particularly program beneficiaries. Fair
+        efforts are taken to ensure that stakeholders participate and
+        contribute to all the stages of the interventions. The following are
+        the key elements of AMU program Strategies and Work Approach.
+      </p>
+    </div>
+
+    <!-- 4x2 Numbered Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- 01 - Skills Acquisitions and Training -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          01
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-graduation-cap" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Skills Acquisitions and Training
@@ -194,13 +227,16 @@
             professional training programs.
           </p>
         </div>
+      </div>
 
-        <!-- Advocacy -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-megaphone" class="w-8 h-8 text-rose-700" />
+      <!-- 02 - Advocacy -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          02
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-megaphone" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Advocacy</h3>
           <p class="text-gray-600 text-sm">
@@ -208,13 +244,16 @@
             justice initiatives.
           </p>
         </div>
+      </div>
 
-        <!-- Exchange Program and Networking -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-globe" class="w-8 h-8 text-rose-700" />
+      <!-- 03 - Exchange Program and Networking -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          03
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-globe" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Exchange Program and Networking
@@ -224,13 +263,16 @@
             opportunities.
           </p>
         </div>
+      </div>
 
-        <!-- Capacity Development -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-trending-up" class="w-8 h-8 text-rose-700" />
+      <!-- 04 - Capacity Development -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          04
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-trending-up" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Capacity Development
@@ -240,13 +282,16 @@
             sustainable growth.
           </p>
         </div>
+      </div>
 
-        <!-- Social Media Mobilization/Promotion -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-share-2" class="w-8 h-8 text-rose-700" />
+      <!-- 05 - Social Media Mobilization/Promotion -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          05
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-share-2" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Social Media Mobilization/Promotion
@@ -256,13 +301,16 @@
             communities.
           </p>
         </div>
+      </div>
 
-        <!-- Core Partnership and Endorsements -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-handshake" class="w-8 h-8 text-rose-700" />
+      <!-- 06 - Core Partnership and Endorsements -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          06
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-handshake" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Core Partnership and Endorsements
@@ -272,13 +320,16 @@
             impact.
           </p>
         </div>
+      </div>
 
-        <!-- Concerts and Sports Activities -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon name="i-lucide-music" class="w-8 h-8 text-rose-700" />
+      <!-- 07 - Concerts and Sports Activities -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          07
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-music" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Concerts and Sports Activities
@@ -288,16 +339,16 @@
             community.
           </p>
         </div>
+      </div>
 
-        <!-- Registrations -->
-        <div
-          class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 group"
-        >
-          <div class="flex items-start mb-4">
-            <Icon
-              name="i-lucide-clipboard-list"
-              class="w-8 h-8 text-rose-700"
-            />
+      <!-- 08 - Registrations -->
+      <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group overflow-hidden hover:-translate-y-1">
+        <span class="absolute -top-4 -right-2 text-8xl font-black text-rose-700/[0.06] group-hover:text-rose-700/[0.10] leading-none select-none transition-colors duration-300 pointer-events-none">
+          08
+        </span>
+        <div class="relative z-10">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 mb-4">
+            <Icon name="i-lucide-clipboard-list" class="w-5 h-5 text-rose-700" />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">
             Registrations
@@ -308,8 +359,10 @@
           </p>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="relative bg-gray-50 py-16">
     <EventCards />
@@ -319,45 +372,95 @@
     <Testimonials />
   </section>
 
-  <section class="relative place-items-center bg-gray-50 py-16 sm:py-20">
-    <NuxtLink 
-      to="/stories/gallery"
-      class="shadow-[0px_-14px_62px_-31px_#c70036] flex flex-col text-left banners w-[95%] sm:w-[90%] lg:w-[85%] xl:w-[80%] rounded-lg h-64 sm:h-72 md:h-80 lg:h-84 place-self-center hover-scale cursor-pointer"
-    >
-      <div class="relative justify-center flex flex-col bg-black p-4 sm:p-6 lg:p-8 rounded-lg text-white h-full overflow-hidden">
-        <!-- Gallery Grid Background -->
-        <div class="absolute inset-0 gallery-grid">
-          <NuxtImg
-            v-for="(image, index) in galleryImages" 
-            :key="index"
-            :src="image.src"
-            :alt="image.alt"
-            class="gallery-image rounded-sm"
-            loading="lazy"
-            sizes="(max-width: 640px) 50vw, 33vw"
-            quality="70"
-          />
-        </div>
-        
-        <!-- Content Overlay -->
-        <div class="relative z-10">
-          <h2 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-            Explore Our Gallery
-          </h2>
-          <p class="mb-4 sm:mb-6 lg:mb-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Discover amazing stories and moments captured in our community gallery. 
-            Click to explore all our featured content and memories.
+<!-- Gallery Preview Section: Stacked/Fanned Photo Cards -->
+<section class="relative bg-gray-50 py-16 lg:py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+      <!-- Fanned Photo Stack - Left on desktop, top on mobile -->
+      <div class="flex-1 w-full flex justify-center">
+        <NuxtLink
+          to="/stories/gallery"
+          class="group relative w-full max-w-sm h-72 sm:h-80 lg:h-96 mx-auto block"
+        >
+          <!-- Back card -->
+          <div class="absolute inset-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] group-hover:rotate-[-14deg] transition-transform duration-300 rounded-2xl overflow-hidden shadow-lg ring-4 ring-white">
+            <NuxtImg
+              :src="galleryImages[2].src"
+              :alt="galleryImages[2].alt"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              sizes="(max-width: 640px) 60vw, 25vw"
+              quality="75"
+            />
+          </div>
+
+          <!-- Middle card -->
+          <div class="absolute inset-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[8deg] group-hover:rotate-[12deg] transition-transform duration-300 rounded-2xl overflow-hidden shadow-lg ring-4 ring-white">
+            <NuxtImg
+              :src="galleryImages[1].src"
+              :alt="galleryImages[1].alt"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              sizes="(max-width: 640px) 60vw, 25vw"
+              quality="75"
+            />
+          </div>
+
+          <!-- Front card -->
+          <div class="absolute inset-0 w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-2deg] group-hover:rotate-[-4deg] group-hover:scale-105 transition-transform duration-300 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white z-10">
+            <NuxtImg
+              :src="galleryImages[0].src"
+              :alt="galleryImages[0].alt"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              sizes="(max-width: 640px) 60vw, 25vw"
+              quality="80"
+            />
+
+            <!-- Subtle hover overlay on front card -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+          </div>
+
+          <!-- Photo count badge -->
+          <div class="absolute z-20 -bottom-2 -right-2 sm:bottom-0 sm:right-0 lg:right-4 bg-rose-700 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+            <Icon name="lucide:image" class="w-3.5 h-3.5" />
+            {{ galleryImages.length }}+ Photos
+          </div>
+        </NuxtLink>
+      </div>
+
+      <!-- Text Content - Right on desktop, bottom on mobile -->
+      <div class="flex-1 text-left w-full">
+        <div class="flex flex-col gap-6">
+          <div>
+            <span class="inline-block text-sm font-semibold tracking-widest text-rose-700 uppercase mb-3">
+              Moments &amp; Memories
+            </span>
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl leading-tight">
+              Explore Our <span class="text-rose-700">Gallery</span>
+            </h2>
+          </div>
+
+          <p class="text-lg text-gray-600 leading-relaxed max-w-lg">
+            Discover amazing stories and moments captured in our community gallery —
+            from classrooms to concerts, sports camps to celebrations. Every photo tells
+            a story of a child given the chance to thrive.
           </p>
-          <div class="w-fit">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 hover:bg-white/30 transition-all duration-200">
-              <Icon name="lucide:image" class="w-4 h-4" />
-              <span class="text-sm font-medium">View Gallery</span>
-            </div>
+
+          <div class="mt-2">
+            <ButtonPrimary
+              path="/stories/gallery"
+              title="View Full Gallery"
+              icon="i-lucide-arrow-right"
+            />
           </div>
         </div>
       </div>
-    </NuxtLink>
-  </section>
+
+    </div>
+  </div>
+</section>
 </template>
 
 <style scoped>
@@ -370,9 +473,9 @@
 }
 
 .statistic-container {
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
 }
 
 .statistic-container.fade-in {
@@ -486,7 +589,7 @@ useSeoMeta({
 // Gallery images data (keeping only the existing assets)
 const galleryImages = ref([
   {
-    src: '/img/bs4.webp',
+    src: '/img/bs9.webp',
     alt: 'AMU Foundation community event - children participating in educational activities'
   },
   {
@@ -506,7 +609,7 @@ const galleryImages = ref([
     alt: 'Community gathering and networking event'
   },
   {
-    src: '/img/bs9.webp',
+    src: '/img/bs4.webp',
     alt: 'AMU Foundation impact story and success celebration'
   }
 ])

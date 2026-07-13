@@ -44,7 +44,7 @@ Women and children represent 85 per cent of those in need.
 Around 60 per cent of these are living with host communities, while the remainder is 
 living in camps or camp-like settings such as schools or government buildings. The vast 
 majority of displaced persons (more than 70 per cent) have moved more than once.  
-Nigeria, with a population of over 237.5 million people, tops the list of the three countries in 
+Nigeria, with a population of over 242 million people, tops the list of the three countries in 
 Africa with the highest population of IDPs.  <br/><br/>
 The truth is that IDPs are often neglected, stigmatized, and already face difficulties in 
 access to basic services. Indigenous women and children face unique challenges and 

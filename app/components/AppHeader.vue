@@ -145,15 +145,15 @@
                   <div class="w-[80%] h-px bg-rose-400"></div>
                 </div>
                 <NuxtLink 
-                  to="/stories/events" 
+                  to="/stories/programs" 
                   :class="[
                     'block px-4 py-2 text-sm hover:bg-gray-50',
-                    isActiveRoute('/stories/events') 
+                    isActiveRoute('/stories/programs') 
                       ? 'text-rose-700 bg-rose-50' 
                       : 'text-gray-700 hover:text-rose-700'
                   ]"
                 >
-                  Events
+                  Programs
                 </NuxtLink>
               </div>
             </div>
@@ -174,17 +174,7 @@
 
         <!-- Desktop Donate Button (right-aligned) -->
         <div class="hidden lg:flex">
-          <NuxtLink 
-            to="/donate" 
-            :class="[
-              'px-4 py-2 rounded-md transition-colors duration-200 font-medium',
-              isActiveRoute('/donate')
-                ? 'bg-rose-800 text-white'
-                : 'bg-rose-700 text-white hover:bg-rose-800'
-            ]"
-          >
-            Donate
-          </NuxtLink>
+          <ButtonPrimary title="Donate" icon="i-lucide-heart" to="/donate"/>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -341,16 +331,16 @@
               Gallery
             </NuxtLink>
             <NuxtLink 
-              to="/stories/events" 
+              to="/stories/programs" 
               @click="mobileMenuOpen = false" 
               :class="[
                 'block py-1 text-sm',
-                isActiveRoute('/stories/events') 
+                isActiveRoute('/stories/programs') 
                   ? 'text-rose-700 font-medium' 
                   : 'text-gray-600 hover:text-rose-700'
               ]"
             >
-              Events
+              Programs
             </NuxtLink>
           </div>
         </div>
@@ -368,18 +358,7 @@
           Contact
         </NuxtLink>
 
-        <NuxtLink 
-          to="/donate" 
-          @click="mobileMenuOpen = false"
-          :class="[
-            'inline-block px-4 py-2 rounded-md transition-colors duration-200 font-medium mt-2',
-            isActiveRoute('/donate')
-              ? 'bg-rose-800 text-white'
-              : 'bg-rose-700 text-white hover:bg-rose-800'
-          ]"
-        >
-          Donate
-        </NuxtLink>
+        <ButtonPrimary title="Donate" icon="i-lucide-heart" to="/donate" @click="mobileMenuOpen = false"/>
       </div>
     </div>
   </header>

@@ -72,6 +72,18 @@
         </div>
       </div>
 
+      <!-- Oversized Wordmark with Track SVG -->
+      <div class="wordmark-section">
+        <img
+          src="/img/amu-track-light.svg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          class="wordmark-track"
+        />
+        <h2 class="wordmark-text">A Million Of Us</h2>
+      </div>
+
       <!-- Copyright Section -->
       <div class="copyright">
         <div class="copyright-content">
@@ -224,6 +236,43 @@
   transform: translateY(-3px);
 }
 
+/* Oversized Wordmark Section */
+.wordmark-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0 10px;
+  margin-top: 10px;
+}
+
+.wordmark-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 900px;
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.wordmark-text {
+  position: relative;
+  z-index: 1;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+  font-size: clamp(2rem, 9vw, 7rem);
+}
+
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding: 15px 0;
@@ -280,6 +329,15 @@
     padding: 0 15px;
   }
 
+  .wordmark-section {
+    padding: 10px 0 5px;
+  }
+
+  .wordmark-track {
+    width: 130%;
+    opacity: 0.1;
+  }
+
   .copyright-content {
     flex-direction: column;
     text-align: center;
@@ -299,6 +357,10 @@
   .social-icons a {
     width: 35px;
     height: 35px;
+  }
+
+  .wordmark-text {
+    font-size: clamp(1.75rem, 11vw, 3rem);
   }
 }
 </style>

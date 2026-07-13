@@ -1,33 +1,37 @@
-// composables/useRegistrations.js
 import { ref } from 'vue'
-import { 
-  collection, 
-  addDoc, 
-  getDocs, 
+import {
+  collection,
+  addDoc,
+  getDocs,
   query,
-  where,
   orderBy
 } from 'firebase/firestore'
 
+const COLLECTIONS = {
+  music: 'musicRegistrations',
+  sports: 'sportsRegistrations'
+}
+
 export const useRegistrations = () => {
   const { $firestore } = useNuxtApp()
-  
+
   const registrations = ref([])
   const loading = ref(false)
   const error = ref(null)
 
-  // Submit registration
-  const submitRegistration = async (eventId, formData) => {
+  const submitRegistration = async (programKey, formData) => {
     loading.value = true
     error.value = null
     try {
+      const collectionName = COLLECTIONS[programKey]
+      if (!collectionName) throw new Error(`Unknown program: ${programKey}`)
+
       const registrationData = {
-        eventId,
-        formData,
+        ...formData,
         submittedAt: new Date(),
         status: 'submitted'
       }
-      const docRef = await addDoc(collection($firestore, 'registrations'), registrationData)
+      const docRef = await addDoc(collection($firestore, collectionName), registrationData)
       return docRef.id
     } catch (err) {
       error.value = err.message
@@ -38,16 +42,14 @@ export const useRegistrations = () => {
     }
   }
 
-  // Get registrations for an event
-  const getEventRegistrations = async (eventId) => {
+  const getRegistrations = async (programKey) => {
     loading.value = true
     error.value = null
     try {
-      const q = query(
-        collection($firestore, 'registrations'),
-        where('eventId', '==', eventId),
-        orderBy('submittedAt', 'desc')
-      )
+      const collectionName = COLLECTIONS[programKey]
+      if (!collectionName) throw new Error(`Unknown program: ${programKey}`)
+
+      const q = query(collection($firestore, collectionName), orderBy('submittedAt', 'desc'))
       const querySnapshot = await getDocs(q)
       registrations.value = querySnapshot.docs.map(doc => ({
         id: doc.id,
@@ -66,6 +68,6 @@ export const useRegistrations = () => {
     loading,
     error,
     submitRegistration,
-    getEventRegistrations
+    getRegistrations
   }
 }

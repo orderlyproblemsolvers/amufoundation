@@ -8,7 +8,7 @@
             Permanent Shelter for the <span class="text-rose-700">Internally Displaced Persons</span>
           </h1>
           <p class="mt-6 text-lg text-gray-600 max-w-4xl mx-auto">
-            In the 6 Area Councils of the Federal Capital Territory – FCT, Abuja
+            In all 774 area councils in Nigeria.
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@
               including 7.7 million people in the three worst affected states (Borno, Adamawa and Yobe). Women and children represent 85 per cent of those in need.
             </p>
             <p>
-              Nigeria, with a population of 182.2 million people, tops the list of the three countries in Africa with the highest population of IDPs.
+              Nigeria, with a population of 242 million people, tops the list of the three countries in Africa with the highest population of IDPs.
             </p>
           </div>
         </div>
@@ -95,8 +95,7 @@
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Vision</h3>
             <p class="text-gray-600 leading-relaxed">
-              We have the vision to provide 1000 (ONE THOUSAND) Permanent Shelters within the six (6) Area Councils (Abaji, Abuja Municipal, Bwari, Gwagwalada, Kuje and Kwali) 
-              in Abuja for the Internally Displaced Persons (IDPS).
+              We have the vision to provide permanent Shelters in all 774 area coincils in Nigeria for the Internally Displaced Persons (IDPS).
             </p>
           </div>
         </div>
@@ -360,12 +359,17 @@
           </button>
 
           <!-- Download Brochure Button -->
-          <button class="group relative border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-rose-700 transition-all duration-300 transform hover:scale-105 flex items-center">
+          <a 
+            href="/documents/amu-prospectus.pdf" 
+            download="amu-prospectus.pdf"
+            target="_blank"
+            class="group relative border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-rose-700 transition-all duration-300 transform hover:scale-105 flex items-center"
+          >
             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
             Download Full Brochure
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -426,12 +430,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
             </svg>
             <span class="text-gray-700">+234 (0)802 500 7333</span>
-          </div>
-          <div class="flex items-center justify-center">
-            <svg class="w-5 h-5 text-rose-700 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-            </svg>
-            <span class="text-gray-700"><a href="https://bs-education.com">www.bs-education.com</a></span>
           </div>
         </div>
       </div>
