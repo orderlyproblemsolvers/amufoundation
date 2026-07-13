@@ -18,7 +18,7 @@
         <!-- B&S Music School -->
         <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[4/5] sm:aspect-[3/4]">
           <!-- Full-bleed photo -->
-          <img
+          <NuxtImg
             src="/img/music.webp"
             alt="B&S Music School"
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -63,7 +63,7 @@
         <!-- AMU Sports Camp -->
         <div class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 aspect-[4/5] sm:aspect-[3/4]">
           <!-- Full-bleed photo -->
-          <img
+          <NuxtImg
             src="/img/sports.webp"
             alt="B&S Sports Academy"
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

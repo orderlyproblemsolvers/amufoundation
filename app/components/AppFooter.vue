@@ -8,7 +8,7 @@
           <ul>
             <li><NuxtLink to="/">Home</NuxtLink></li>
             <li><NuxtLink to="/about/history">About</NuxtLink></li>
-            <li><NuxtLink to="/stories/events">Events</NuxtLink></li>
+            <li><NuxtLink to="/stories/programs">Programs</NuxtLink></li>
             <li><NuxtLink to="/about/team">Our Team</NuxtLink></li>
           </ul>
         </div>
@@ -17,7 +17,7 @@
         <div class="footer-column">
           <h3>Get Involved</h3>
           <ul>
-            <li><NuxtLink to="/stories/events">Register a Child</NuxtLink></li>
+            <li><NuxtLink to="/stories/programs">Register a Child</NuxtLink></li>
             <li><NuxtLink to="/donate">Partner with Us</NuxtLink></li>
             <li><NuxtLink to="/about/kacis">KACIS</NuxtLink></li>
             <li><NuxtLink to="/donate">Donate</NuxtLink></li>
