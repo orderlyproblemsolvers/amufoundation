@@ -25,7 +25,7 @@ export const PROGRAMS = {
       outlineBtn: 'border-rose-700 text-rose-700 hover:bg-rose-700 hover:text-white'
     }
   },
-  'sports-camp': {
+  'sports-academy': {
     slug: 'sports-academy',
     collectionKey: 'sports',
     name: 'B&S Sports Academy',
